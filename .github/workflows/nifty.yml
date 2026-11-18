@@ -1,0 +1,88 @@
+name: Nifty options alerts
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'test checks Upstox + Telegram; run monitors until session end'
+        type: choice
+        options: [test, run, once]
+        default: test
+  schedule:
+    # UTC: 08:57 IST start with setup margin; 14:07 handover; 16:17 report fallback.
+    - cron: '27 3 * * 1-5'
+    - cron: '37 8 * * 1-5'
+    - cron: '47 10 * * 1-5'
+permissions:
+  contents: write
+concurrency:
+  group: nifty-options-state
+  cancel-in-progress: false
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 345
+    env:
+      STATE_DIR: ${{ github.workspace }}/.state
+      GIT_STATE: 'true'
+      KRONOS_PATH: ${{ github.workspace }}/vendor/Kronos
+      ENABLE_KRONOS: ${{ vars.ENABLE_KRONOS || 'true' }}
+      POLL_SECONDS: '30'
+      HF_HUB_DISABLE_TELEMETRY: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install dependencies
+        run: |
+          python -m pip install -r requirements.txt
+          pip install torch==2.7.1 --index-url https://download.pytorch.org/whl/cpu
+      - name: Fetch pinned native Kronos code
+        run: |
+          mkdir -p vendor/Kronos
+          git -C vendor/Kronos init
+          git -C vendor/Kronos remote add origin https://github.com/shiyu-coder/Kronos.git
+          git -C vendor/Kronos fetch --depth 1 origin 67b630e67f6a18c9e9be918d9b4337c960db1e9a
+          git -C vendor/Kronos checkout --detach FETCH_HEAD
+      - name: Restore model download cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface/hub
+          key: kronos-mini-v1
+      - name: Prepare persistent state branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'nifty-research-bot'
+          git config user.email 'nifty-research-bot@users.noreply.github.com'
+          if git ls-remote --exit-code --heads origin bot-state >/dev/null; then
+            git fetch origin bot-state
+            git worktree add -B bot-state .state origin/bot-state
+          else
+            git worktree add --detach .state HEAD
+            git -C .state checkout --orphan bot-state
+            git -C .state rm -rf .
+            git -C .state clean -fd
+          fi
+          mkdir -p .state/reports
+          touch .state/reports/.gitkeep
+      - name: Test calculations and outcome handling
+        run: python -m unittest discover -s tests -v
+      - name: Run collector
+        env:
+          UPSTOX_ACCESS_TOKEN: ${{ secrets.UPSTOX_ACCESS_TOKEN }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          RUN_MODE: ${{ inputs.mode || 'run' }}
+        run: python -u nifty_options_bot.py --mode "$RUN_MODE"
+      - name: Final state checkpoint
+        if: always()
+        run: |
+          if [ -f .state/state.json ]; then
+            git -C .state add state.json reports
+            if ! git -C .state diff --cached --quiet; then
+              git -C .state commit -m 'Final research checkpoint [skip ci]'
+            fi
+            git -C .state push origin HEAD:bot-state
+          fi
