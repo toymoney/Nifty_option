@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "days": {},
+  "trades": [],
+  "outbox": [
+    {
+      "id": "connection-2026-11-18T20:48:07.972015+05:30",
+      "text": "Nifty bot connection test OK. Upstox returned 2100 contracts. Paper-only; all 3 strategies configured.",
+      "sent": true
+    }
+  ],
+  "learner": {
+    "weights": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "trained_ids": [],
+    "brier": []
+  }
+}
