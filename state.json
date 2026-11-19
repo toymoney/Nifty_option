@@ -880,7 +880,7 @@
       "target": 53.94,
       "stop": null,
       "direction": "DOWN",
-      "status": "OPEN",
+      "status": "VALUE_REACHED",
       "shadow": false,
       "features_snapshot": {
         "key": "NSE_FO|64477",
@@ -908,9 +908,9 @@
         },
         "spot": 25375.5
       },
-      "last": 62.15,
-      "last_seen": "2026-11-19T12:39:16.965178+05:30",
-      "checked_until": "2026-11-19T12:38:00+05:30",
+      "last": 56.95,
+      "last_seen": "2026-11-19T12:44:00+05:30",
+      "checked_until": "2026-11-19T12:43:00+05:30",
       "entry_minute_excluded": true,
       "gap_pct": -16.055802491076104,
       "peer_iv": 12.379538318422135,
@@ -922,7 +922,10 @@
         "provider_theta": -14.0776
       },
       "fair_model": "leave_one_out_peer_IV_Black_Scholes",
-      "severity": "15\u201325%"
+      "severity": "15\u201325%",
+      "closed": "2026-11-19T12:44:00+05:30",
+      "exit_price": 53.94,
+      "evidence": "completed_1m_candle"
     }
   ],
   "outbox": [
@@ -1069,6 +1072,11 @@
     {
       "id": "entry-66d55da1b4249e",
       "text": "S3 PAPER RESEARCH | NIFTY 25600 CE\nExpiry 2026-11-23 | 12:37:43 IST\nLTP/reference \u20b962.60\nFixed model value \u20b953.94; direction DOWN\nGap -16.1%; peer IV 12.38%\nNo stop: valuation watch only.\nIV 12.39% | \u0394 0.298 | \u0393 0.00100\n\u0398 -14.08 | Vega 9.36 | OI 4.77224e+06\nExpiry in 4.12 days\nID 66d55da1b4249e",
+      "sent": true
+    },
+    {
+      "id": "exit-66d55da1b4249e",
+      "text": "S3 | NIFTY 25600 CE\nVALUE_REACHED: \u20b953.94\nEvidence: completed_1m_candle\nID 66d55da1b4249e | 12:44 IST",
       "sent": true
     }
   ],
