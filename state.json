@@ -1,11 +1,29 @@
 {
   "version": 1,
-  "days": {},
+  "days": {
+    "2026-11-19": {
+      "date": "2026-11-19",
+      "diagnostics": {},
+      "expiry": "2026-11-23",
+      "previous_date": "2026-11-18",
+      "previous_spot": 25227.95,
+      "previous_atm": 25250,
+      "opening_contracts": {
+        "PE": "NSE_FO|64455",
+        "CE": "NSE_FO|64453"
+      }
+    }
+  },
   "trades": [],
   "outbox": [
     {
       "id": "connection-2026-11-18T20:48:07.972015+05:30",
       "text": "Nifty bot connection test OK. Upstox returned 2100 contracts. Paper-only; all 3 strategies configured.",
+      "sent": true
+    },
+    {
+      "id": "online-2026-11-19",
+      "text": "Nifty research bot ONLINE | 2026-11-19\nExpiry 2026-11-23; previous-close ATM 25250.\nS1 Kronos + learning; S2 opening gap; S3 relative fair value.\nPaper alerts only. Daily report around 16:15 IST.",
       "sent": true
     }
   ],
@@ -24,5 +42,11 @@
     ],
     "trained_ids": [],
     "brier": []
+  },
+  "journal": {
+    "version": 1,
+    "reviews": {},
+    "rules": {},
+    "events": []
   }
 }
