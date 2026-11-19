@@ -40,7 +40,10 @@
           "reference_close": 25141.1,
           "reference_bar": "2026-11-19T09:30:00+05:30",
           "target_bar": "2026-11-19T09:45:00+05:30",
-          "predicted_close": 25128.521484375
+          "predicted_close": 25128.521484375,
+          "actual_return": 0.004625891468551524,
+          "absolute_error_pct": 0.5126208305324731,
+          "direction_correct": false
         },
         {
           "at": "2026-11-19T10:00:53.857543+05:30",
@@ -48,7 +51,10 @@
           "reference_close": 25279.5,
           "reference_bar": "2026-11-19T09:55:00+05:30",
           "target_bar": "2026-11-19T10:10:00+05:30",
-          "predicted_close": 25283.12109375
+          "predicted_close": 25283.12109375,
+          "actual_return": 3.7579857196545774e-05,
+          "absolute_error_pct": 0.01056624438775522,
+          "direction_correct": true
         },
         {
           "at": "2026-11-19T10:30:53.954390+05:30",
@@ -56,7 +62,10 @@
           "reference_close": 25248.7,
           "reference_bar": "2026-11-19T10:25:00+05:30",
           "target_bar": "2026-11-19T10:40:00+05:30",
-          "predicted_close": 25271.0390625
+          "predicted_close": 25271.0390625,
+          "actual_return": 0.0013208600838854334,
+          "absolute_error_pct": 0.04360991853045171,
+          "direction_correct": true
         },
         {
           "at": "2026-11-19T11:00:58.218046+05:30",
@@ -64,7 +73,10 @@
           "reference_close": 25292.85,
           "reference_bar": "2026-11-19T10:55:00+05:30",
           "target_bar": "2026-11-19T11:10:00+05:30",
-          "predicted_close": 25298.025390625
+          "predicted_close": 25298.025390625,
+          "actual_return": 0.00040525286790527026,
+          "absolute_error_pct": 0.020063414660653756,
+          "direction_correct": true
         },
         {
           "at": "2026-11-19T11:30:31.565009+05:30",
@@ -72,7 +84,10 @@
           "reference_close": 25322.7,
           "reference_bar": "2026-11-19T11:25:00+05:30",
           "target_bar": "2026-11-19T11:40:00+05:30",
-          "predicted_close": 25323.953125
+          "predicted_close": 25323.953125,
+          "actual_return": 0.00030999853886037876,
+          "absolute_error_pct": 0.026051230713952656,
+          "direction_correct": true
         },
         {
           "at": "2026-11-19T12:00:32.252157+05:30",
@@ -80,7 +95,10 @@
           "reference_close": 25358.55,
           "reference_bar": "2026-11-19T11:55:00+05:30",
           "target_bar": "2026-11-19T12:10:00+05:30",
-          "predicted_close": 25363.314453125
+          "predicted_close": 25363.314453125,
+          "actual_return": -9.66143568934541e-05,
+          "absolute_error_pct": 0.028449785673867467,
+          "direction_correct": false
         },
         {
           "at": "2026-11-19T12:30:36.081196+05:30",
@@ -88,7 +106,10 @@
           "reference_close": 25362.9,
           "reference_bar": "2026-11-19T12:25:00+05:30",
           "target_bar": "2026-11-19T12:40:00+05:30",
-          "predicted_close": 25365.30078125
+          "predicted_close": 25365.30078125,
+          "actual_return": -7.885533594320648e-06,
+          "absolute_error_pct": 0.010254273959198201,
+          "direction_correct": false
         },
         {
           "at": "2026-11-19T13:00:44.140982+05:30",
@@ -96,7 +117,10 @@
           "reference_close": 25371.75,
           "reference_bar": "2026-11-19T12:55:00+05:30",
           "target_bar": "2026-11-19T13:10:00+05:30",
-          "predicted_close": 25368.796875
+          "predicted_close": 25368.796875,
+          "actual_return": -0.0005990915092574101,
+          "absolute_error_pct": 0.048269729127869976,
+          "direction_correct": true
         },
         {
           "at": "2026-11-19T13:30:45.768718+05:30",
@@ -104,7 +128,10 @@
           "reference_close": 25371.0,
           "reference_bar": "2026-11-19T13:25:00+05:30",
           "target_bar": "2026-11-19T13:40:00+05:30",
-          "predicted_close": 25370.375
+          "predicted_close": 25370.375,
+          "actual_return": 0.0006129044972607023,
+          "absolute_error_pct": 0.06375389223917116,
+          "direction_correct": false
         },
         {
           "at": "2026-11-19T14:00:50.900372+05:30",
@@ -112,9 +139,14 @@
           "reference_close": 25390.1,
           "reference_bar": "2026-11-19T13:55:00+05:30",
           "target_bar": "2026-11-19T14:10:00+05:30",
-          "predicted_close": 25382.130859375
+          "predicted_close": 25382.130859375,
+          "actual_return": 0.0018294532120788354,
+          "absolute_error_pct": 0.21433212403654256,
+          "direction_correct": false
         }
-      ]
+      ],
+      "new_training_cases": 0,
+      "reported": true
     }
   },
   "trades": [
@@ -1102,6 +1134,11 @@
       "id": "exit-66d55da1b4249e",
       "text": "S3 | NIFTY 25600 CE\nVALUE_REACHED: \u20b953.94\nEvidence: completed_1m_candle\nID 66d55da1b4249e | 12:44 IST",
       "sent": true
+    },
+    {
+      "id": "report-2026-11-19-0",
+      "text": "MY DAILY LEARNING REVIEW | 2026-11-19\nRecorded market session: 1\n\nWHAT I DID WELL\n- S3: 24950 PE reached its model value.\n- S3: 25000 PE reached its model value.\n- S3: 25050 PE reached its model value.\n- S3: 25100 PE reached its model value.\n\nWHAT WENT WRONG\n- S2: 25250 PE hit its stop. I saved the entry conditions to compare with future results.\n\nWHAT THE RECORD IS TEACHING ME\n- No resolved S1 examples yet. I will record the next session rather than invent a lesson.\n- I updated my small scoring model from 0 newly resolved alert(s). Kronos was not changed.\n\nWHAT I WILL TRY TOMORROW\n- Keep the entry rules while I collect more evidence. No extra filter is justified yet.\n- I will keep reviewing the opening and value-watch results. Their original rules stay fixed.\n\nMY 15\u201330 SESSION RECORD\n- 0 trial(s) recorded. Every keep/pause decision and daily plan is saved.\n- Next checkpoint: session 15. Calendar days without observed market data do not count.\nThese are observed patterns, not proven reasons. No forced new rule after a single win or loss.\n\nDETAILED RESULTS\nNIFTY PAPER REPORT | 2026-11-19 | 16:15 IST\nValues/returns are research estimates, not executed trades.\n\nS1: 0 alerts\n\nS2: 1 alerts\n25250 PE: STOP; entry 177.85, last 169.05, net estimate -10.50%\n\nS3: 13 alerts\n24950 PE: VALUE_REACHED; entry 71.90, last 59.40, fixed fair 59.79, remaining gap +0.7%\n25000 PE: VALUE_REACHED; entry 87.85, last 73.25, fixed fair 73.73, remaining gap +0.7%\n25050 PE: VALUE_REACHED; entry 106.25, last 89.40, fixed fair 89.90, remaining gap +0.6%\n25100 PE: VALUE_REACHED; entry 128.00, last 108.15, fixed fair 109.53, remaining gap +1.3%\n25150 PE: VALUE_REACHED; entry 151.75, last 130.00, fixed fair 131.54, remaining gap +1.2%\n25250 CE: VALUE_REACHED; entry 98.90, last 111.00, fixed fair 116.94, remaining gap +5.1%\n25300 CE: VALUE_REACHED; entry 81.95, last 91.85, fixed fair 97.69, remaining gap +6.0%\n25350 CE: VALUE_REACHED; entry 67.25, last 75.65, fixed fair 81.24, remaining gap +6.9%\n25200 PE: VALUE_REACHED; entry 175.45, last 144.75, fixed fair 148.97, remaining gap +2.8%\n25250 PE: VALUE_REACHED; entry 205.40, last 171.20, fixed fair 175.88, remaining gap +2.7%\n25400 CE: VALUE_REACHED; entry 53.55, last 61.60, fixed fair 66.90, remaining gap +7.9%\n25450 CE: VALUE_REACHED; entry 53.45, last 60.05, fixed fair 63.58, remaining gap +5.6%\n25600 CE: VALUE_REACHED; entry 62.60, last 56.95, fixed fair 53.94, remaining gap -5.6%\n\nSilently followed skipped S1 setups: 0; targets missed 0; stops avoided 0.\n\nKronos underlying forecasts: 5/10 correct direction; MAE 0.098 percentage points.\n\nCounter trades (opposite option, shadow): 0\n\nLearning: 0 resolved S1 samples. Warm-up; no learned filtering yet.\nS2 rules and S3 model are never rewritten by the learner. Losses can recur.\nKronos: Native pretrained Kronos-mini forecast successful; no base-model fine-tuning.\n",
+      "sent": true
     }
   ],
   "learner": {
@@ -1122,7 +1159,43 @@
   },
   "journal": {
     "version": 1,
-    "reviews": {},
+    "reviews": {
+      "2026-11-19": {
+        "date": "2026-11-19",
+        "session_number": 1,
+        "market_session": true,
+        "today_summary": {
+          "S1": {
+            "alerts": 0,
+            "target": 0,
+            "stop": 0,
+            "unresolved": 0
+          },
+          "S2": {
+            "alerts": 1,
+            "target": 0,
+            "stop": 1,
+            "unresolved": 0
+          },
+          "S3": {
+            "alerts": 13,
+            "target": 13,
+            "stop": 0,
+            "unresolved": 0
+          }
+        },
+        "patterns": [],
+        "actions": [],
+        "tomorrow_policy": null,
+        "evaluated_rule": null,
+        "tomorrow_policies": [],
+        "evaluated_rules": [],
+        "active_rules": [],
+        "active_forward": null,
+        "new_training_cases": 0,
+        "milestone": false
+      }
+    },
     "rules": {},
     "events": []
   }

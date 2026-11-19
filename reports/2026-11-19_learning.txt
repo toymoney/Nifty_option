@@ -1,0 +1,24 @@
+MY DAILY LEARNING REVIEW | 2026-11-19
+Recorded market session: 1
+
+WHAT I DID WELL
+- S3: 24950 PE reached its model value.
+- S3: 25000 PE reached its model value.
+- S3: 25050 PE reached its model value.
+- S3: 25100 PE reached its model value.
+
+WHAT WENT WRONG
+- S2: 25250 PE hit its stop. I saved the entry conditions to compare with future results.
+
+WHAT THE RECORD IS TEACHING ME
+- No resolved S1 examples yet. I will record the next session rather than invent a lesson.
+- I updated my small scoring model from 0 newly resolved alert(s). Kronos was not changed.
+
+WHAT I WILL TRY TOMORROW
+- Keep the entry rules while I collect more evidence. No extra filter is justified yet.
+- I will keep reviewing the opening and value-watch results. Their original rules stay fixed.
+
+MY 15–30 SESSION RECORD
+- 0 trial(s) recorded. Every keep/pause decision and daily plan is saved.
+- Next checkpoint: session 15. Calendar days without observed market data do not count.
+These are observed patterns, not proven reasons. No forced new rule after a single win or loss.

@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "reviews": {
+    "2026-11-19": {
+      "date": "2026-11-19",
+      "session_number": 1,
+      "market_session": true,
+      "today_summary": {
+        "S1": {
+          "alerts": 0,
+          "target": 0,
+          "stop": 0,
+          "unresolved": 0
+        },
+        "S2": {
+          "alerts": 1,
+          "target": 0,
+          "stop": 1,
+          "unresolved": 0
+        },
+        "S3": {
+          "alerts": 13,
+          "target": 13,
+          "stop": 0,
+          "unresolved": 0
+        }
+      },
+      "patterns": [],
+      "actions": [],
+      "tomorrow_policy": null,
+      "evaluated_rule": null,
+      "tomorrow_policies": [],
+      "evaluated_rules": [],
+      "active_rules": [],
+      "active_forward": null,
+      "new_training_cases": 0,
+      "milestone": false
+    }
+  },
+  "rules": {},
+  "events": []
+}
