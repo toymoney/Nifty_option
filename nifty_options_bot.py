@@ -188,6 +188,284 @@ class API:
         return contracts
 
 
+class DailyJournal:
+    """Auditable daily lessons. Does not alter Kronos or S2/S3 entry rules.
+    Policy is frozen after each review and can only affect later dates.
+    """
+    LABELS = {
+        'side:CE':'buying calls', 'side:PE':'buying puts',
+        'iv:normal':'options with IV below 25%', 'iv:high':'options with IV of 25% or more',
+        'spread:tight':'options with a bid/ask gap of 1.5% or less',
+        'spread:wide':'options with a bid/ask gap above 1.5%',
+        'forecast:strong':'Kronos moves of at least 0.20%',
+        'forecast:small':'Kronos moves below 0.20%',
+        'time:morning':'entries before noon', 'time:afternoon':'entries after noon',
+        'oi:rising':'open interest rising by at least 10%',
+        'oi:falling':'open interest falling by at least 10%', 'oi:steady':'mostly steady open interest',
+    }
+
+    def __init__(self,state):
+        self.state=state
+        self.data=state.setdefault('journal',{'version':1,'reviews':{},'rules':{},'events':[]})
+
+    @staticmethod
+    def tags(c,forecast,t):
+        m,g=c.get('market',{}),c.get('greeks',{})
+        tags=['side:'+c['side'],'time:'+('morning' if t.hour<12 else 'afternoon')]
+        if g.get('iv') is not None:
+            tags.append('iv:'+('high' if num(g['iv'])>=25 else 'normal'))
+        if num(m.get('ltp'))>0 and m.get('ask_price') is not None and m.get('bid_price') is not None:
+            spread=(num(m['ask_price'])-num(m['bid_price']))/num(m['ltp'])
+            tags.append('spread:'+('tight' if spread<=.015 else 'wide'))
+        if forecast is not None:
+            tags.append('forecast:'+('strong' if abs(forecast)>=.002 else 'small'))
+        if num(m.get('prev_oi'))>0:
+            change=(num(m.get('oi'))-num(m['prev_oi']))/num(m['prev_oi'])
+            tags.append('oi:'+('rising' if change>=.10 else 'falling' if change<=-.10 else 'steady'))
+        return tags
+
+    def trade_tags(self,tr):
+        if 'journal_tags' in tr:
+            return tr['journal_tags']
+        if tr.get('features_snapshot') and tr.get('entered'):
+            return self.tags(tr['features_snapshot'],tr.get('forecast_return'),parse(tr['entered']))
+        return []
+
+    def sessions(self,date):
+        dates={d for d,day in self.state['days'].items() if d<=date and day.get('market_seen')}
+        dates.update(z['day'] for z in self.state['trades'] if z['day']<=date)
+        return sorted(dates)
+
+    def samples(self,date):
+        dates=set(self.sessions(date)[-30:])
+        return [z for z in self.state['trades'] if z['day'] in dates and z['strategy']=='S1'
+                and z['status'] in ('TARGET','STOP') and z.get('net_estimated_pct') is not None
+                and (not z.get('shadow') or z.get('journal_role')=='skipped_candidate')
+                and (not z.get('closed') or parse(z['closed']).date().isoformat()<=date)]
+
+    @staticmethod
+    def stats(rows):
+        return {'cases':len(rows),'days':len({z['day'] for z in rows}),
+                'wins':sum(z['status']=='TARGET' for z in rows),
+                'losses':sum(z['status']=='STOP' for z in rows),
+                'mean_net_pct':statistics.mean(z['net_estimated_pct'] for z in rows) if rows else None}
+
+    def policies(self,date):
+        # Never use this evening's results for this morning's decisions.
+        dates=[d for d in self.data['reviews'] if d<date]
+        if not dates:return []
+        review=self.data['reviews'][max(dates)]
+        return review.get('tomorrow_policies', [review['tomorrow_policy']] if review.get('tomorrow_policy') else [])
+
+    def policy(self,date):
+        policies=self.policies(date)
+        return policies[0] if policies else None
+
+    def decide(self,date,tags,score,trained):
+        base_allowed=trained<30 or score>=.45
+        result={'allow':base_allowed,'base_allowed':base_allowed,'changed':False,
+                'rule_id':None,'reason':'usual learned-score filter' if not base_allowed else 'usual setup rules'}
+        matches=[r for r in self.policies(date) if r['tag'] in tags]
+        avoid=[r for r in matches if r['action']=='avoid']
+        # Avoid has priority; attribute the effect to ONE rule, never double-credit.
+        if avoid:
+            if base_allowed:
+                rule=avoid[0]
+                result.update(allow=False,changed=True,rule_id=rule['id'],
+                              reason='daily journal: avoid '+self.LABELS[rule['tag']])
+            return result
+        prefer=[r for r in matches if r['action']=='prefer']
+        if prefer and not base_allowed and trained>=30 and score>=.40:
+            rule=prefer[0]
+            result.update(allow=True,changed=True,rule_id=rule['id'],
+                          reason='daily journal: small trial favouring '+self.LABELS[rule['tag']])
+        return result
+
+    def review(self,day):
+        date=day['date']
+        if date in self.data['reviews']:
+            return self.data['reviews'][date]
+        sessions=self.sessions(date)
+        sample=self.samples(date)
+        prior=[d for d in self.data['reviews'] if d<date]
+        previous=self.data['reviews'][max(prior)] if prior else None
+        active_rules=[]
+        if previous:
+            policies=previous.get('tomorrow_policies', [previous['tomorrow_policy']] if previous.get('tomorrow_policy') else [])
+            active_rules=[self.data['rules'][r['id']] for r in policies if r['id'] in self.data['rules']]
+        actions=[]
+        evaluated_rules=[]
+        for active in active_rules:
+            affected=[z for z in sample if z.get('journal_rule_id')==active['id'] and z.get('journal_changed')
+                      and z['day']>active['created']]
+            # Actual new alerts for prefer; counterfactual skipped candidates for avoid.
+            effects=[(-1 if active['action']=='avoid' else 1)*z['net_estimated_pct'] for z in affected]
+            active['forward']={**self.stats(affected),
+                'mean_effect_pct':statistics.mean(effects) if effects else None,
+                'helped':sum(x>0 for x in effects),'hurt':sum(x<0 for x in effects)}
+            age=len([d for d in sessions if d>active['created']])
+            evidence=len(effects)>=10 and len({z['day'] for z in affected})>=5
+            status=active['status']
+            if evidence and statistics.mean(effects)>2:
+                active['status']='KEEP'
+                note='The trial helped on later cases; keep it and continue checking.'
+            elif evidence and statistics.mean(effects)<-2:
+                active['status']='PAUSED'
+                note='The trial hurt on later cases; remove it from tomorrow\'s decisions.'
+            elif age>=10:
+                active['status']='PAUSED'
+                note='The trial has not shown enough benefit after 10 sessions; stop using it.'
+            else:
+                note='The trial still needs more later outcomes; keep testing one change.'
+            if status!=active['status']:
+                self.data['events'].append({'date':date,'rule_id':active['id'],
+                    'from':status,'to':active['status'],'reason':note})
+                if active['status']=='PAUSED':active['paused_on']=date
+            actions.append(note)
+            evaluated={'id':active['id'],'tag':active['tag'],'action':active['action'],
+                       'status':active['status'],'forward':dict(active['forward'])}
+            evaluated_rules.append(evaluated)
+        active_rules=[r for r in active_rules if r['status']!='PAUSED']
+
+        # Predefined, broad tags limit post-hoc rule searching. Descriptive, not causal.
+        patterns=[]
+        for tag,label in self.LABELS.items():
+            group=[z for z in sample if tag in self.trade_tags(z)]
+            other=[z for z in sample if tag not in self.trade_tags(z)
+                   and any(k.split(':')[0]==tag.split(':')[0] for k in self.trade_tags(z))]
+            if not group:continue
+            stat=self.stats(group); comparison=self.stats(other)
+            enough=stat['cases']>=12 and stat['days']>=5 and comparison['cases']>=6 and comparison['days']>=3
+            difference=stat['mean_net_pct']-comparison['mean_net_pct'] if other else None
+            action=None
+            if enough and stat['wins']/stat['cases']<=.35 and stat['mean_net_pct']<0 and difference<=-4:
+                action='avoid'
+            if enough and stat['wins']/stat['cases']>=.65 and stat['mean_net_pct']>0 and difference>=4:
+                action='prefer'
+            patterns.append({'tag':tag,'label':label,'stats':stat,'comparison':comparison,
+                             'difference_pct':difference,'candidate_action':action})
+        candidates=[p for p in patterns if p['candidate_action']]
+        candidates.sort(key=lambda p:abs(p['difference_pct']),reverse=True)
+        if len(active_rules)<3 and not any(r['status']=='TRY' for r in active_rules):
+            for p in candidates:
+                # One rule per feature family; never stack contradictory variants.
+                if any(r['tag'].split(':')[0]==p['tag'].split(':')[0] for r in active_rules):
+                    continue
+                # Do not retry a failed lesson immediately; preserve its failed history.
+                same=[r for r in self.data['rules'].values() if r['tag']==p['tag'] and r['action']==p['candidate_action']]
+                if any(r.get('paused_on') and len([d for d in sessions if d>r['paused_on']])<5 for r in same):
+                    continue
+                if p['candidate_action']=='prefer' and len(self.state['learner']['trained_ids'])<30:
+                    continue
+                rid=hashlib.sha256(f'{date}:{p["tag"]}:{p["candidate_action"]}'.encode()).hexdigest()[:12]
+                active={'id':rid,'tag':p['tag'],'action':p['candidate_action'],'status':'TRY',
+                        'created':date,'discovery':p,'forward':{'cases':0,'days':0,'mean_effect_pct':None}}
+                self.data['rules'][rid]=active
+                active_rules.append(active)
+                self.data['events'].append({'date':date,'rule_id':rid,'from':'OBSERVE','to':'TRY',
+                                           'reason':'Enough past examples for one limited forward trial.'})
+                actions.append('Start one small trial tomorrow: '+('avoid ' if active['action']=='avoid' else 'favour ')+p['label']+'.')
+                break
+        frozen_rules=[{k:r[k] for k in ('id','tag','action','status','created')} for r in active_rules]
+        frozen=frozen_rules[0] if frozen_rules else None
+        active=active_rules[0] if active_rules else None
+        evaluated=evaluated_rules[0] if evaluated_rules else None
+        today=[z for z in self.state['trades'] if z['day']==date and not z.get('shadow')]
+        review={'date':date,'session_number':len(sessions),'market_session':date in sessions,
+                'today_summary':{s:{'alerts':len([z for z in today if z['strategy']==s]),
+                   'target':len([z for z in today if z['strategy']==s and z['status'] in ('TARGET','VALUE_REACHED')]),
+                   'stop':len([z for z in today if z['strategy']==s and z['status']=='STOP']),
+                   'unresolved':len([z for z in today if z['strategy']==s and z['status'] not in ('TARGET','STOP','VALUE_REACHED')])}
+                    for s in ('S1','S2','S3')},
+                'patterns':patterns,'actions':actions,'tomorrow_policy':frozen,'evaluated_rule':evaluated,
+                'tomorrow_policies':frozen_rules,'evaluated_rules':evaluated_rules,
+                'active_rules':[{**r,'forward':dict(r['forward'])} for r in active_rules],
+                'active_forward':dict(active.get('forward',{})) if active else None,
+                'new_training_cases':day.get('new_training_cases',0),
+                'milestone':date in sessions and len(sessions)>0 and len(sessions)%15==0}
+        if review['milestone']:
+            review['checkpoint_results']={}
+            for strategy in ('S1','S2','S3'):
+                windows=[]
+                for label,window in [('latest 15 sessions',sessions[-15:]),('previous 15 sessions',sessions[-30:-15])]:
+                    rows=[z for z in self.state['trades'] if z['day'] in window and z['strategy']==strategy and not z.get('shadow')]
+                    windows.append({'window':label,'sessions':len(window),'alerts':len(rows),
+                        'hits':sum(z['status'] in ('TARGET','VALUE_REACHED') for z in rows),
+                        'stops':sum(z['status']=='STOP' for z in rows),
+                        'unresolved':sum(z['status'] not in ('TARGET','STOP','VALUE_REACHED') for z in rows)})
+                review['checkpoint_results'][strategy]=windows
+        self.data['reviews'][date]=review
+        return review
+
+    def english(self,review):
+        date=review['date']
+        today=[z for z in self.state['trades'] if z['day']==date and not z.get('shadow')]
+        won=[z for z in today if z['status'] in ('TARGET','VALUE_REACHED')]
+        lost=[z for z in today if z['status']=='STOP']
+        unclear=[z for z in today if z['status'] in ('AMBIGUOUS','DATA_MISSING','OPEN','EOD_OPEN')]
+        lines=[f'MY DAILY LEARNING REVIEW | {date}',f'Recorded market session: {review["session_number"]}',
+               '\nWHAT I DID WELL']
+        if won:
+            for z in won[:4]:
+                lines.append(f'- {z["strategy"]}: {z["strike"]:g} {z["side"]} reached '+('its model value.' if z['strategy']=='S3' else 'the target.'))
+        else:lines.append('- I have no verified target/value hit to call a success today.')
+        lines.append('\nWHAT WENT WRONG')
+        if lost:
+            for z in lost[:4]:
+                lines.append(f'- {z["strategy"]}: {z["strike"]:g} {z["side"]} hit its stop. I saved the entry conditions to compare with future results.')
+        else:lines.append('- No verified stop hit today. This alone does not prove the decisions were good.')
+        if unclear:lines.append(f'- {len(unclear)} alert(s) remain unresolved or uncertain; I will not call them wins.')
+        lines.append('\nWHAT THE RECORD IS TEACHING ME')
+        patterns=review['patterns']
+        positive=sorted([p for p in patterns if p['stats']['mean_net_pct']>0],key=lambda p:-p['stats']['mean_net_pct'])
+        negative=sorted([p for p in patterns if p['stats']['mean_net_pct']<0],key=lambda p:p['stats']['mean_net_pct'])
+        for label,items in [('Encouraging',positive),('Weak',negative)]:
+            if items:
+                p=items[0];s=p['stats']
+                lines.append(f'- {label}: {p["label"]}: {s["wins"]} targets and {s["losses"]} stops across {s["days"]} sessions. '
+                             f'Average paper result after assumed costs: {s["mean_net_pct"]:+.1f}% of entry premium. '
+                             +('Enough past examples for a trial, not proof.' if p['candidate_action'] else 'An observation only; not enough comparative evidence for a new rule.'))
+        if not patterns:lines.append('- No resolved S1 examples yet. I will record the next session rather than invent a lesson.')
+        lines.append(f'- I updated my small scoring model from {review["new_training_cases"]} newly resolved alert(s). Kronos was not changed.')
+        lines.append('\nWHAT I WILL TRY TOMORROW')
+        policies=review.get('active_rules',[])
+        for policy in policies:
+            label=self.LABELS[policy['tag']]
+            if policy['action']=='avoid':
+                lines.append(f'- {policy["status"]}: skip S1 alerts for {label}. I will still track these silently, including missed winners.')
+            else:
+                lines.append(f'- {policy["status"]}: give {label} a small preference: allow S1 scores from 0.40 instead of 0.45. All other entry checks stay in place.')
+            f=policy.get('forward') or {}
+            if f.get('cases'):
+                lines.append(f'- On {f["cases"]} later affected case(s), this change helped {f.get("helped",0)} and hurt {f.get("hurt",0)}. '
+                             f'Average measured effect: {f["mean_effect_pct"]:+.1f} percentage points of entry premium per affected case, not portfolio profit.')
+        if not policies:
+            lines.append('- Keep the entry rules while I collect more evidence. No extra filter is justified yet.')
+        for evaluated in review.get('evaluated_rules',[]):
+            if evaluated['status']=='PAUSED':
+                f=evaluated['forward']
+                lines.append(f'- Removed trial: {evaluated["action"]} {self.LABELS[evaluated["tag"]]}. Later affected cases: {f["cases"]}; helped {f.get("helped",0)}, hurt {f.get("hurt",0)}.')
+        lines.extend('- '+a for a in review['actions'])
+        lines.append('- I will keep reviewing the opening and value-watch results. Their original rules stay fixed.')
+        lines.append('\nMY 15–30 SESSION RECORD')
+        records=[r for r in self.data['rules'].values() if r['created']<=date]
+        lines.append(f'- {len(records)} trial(s) recorded. Every keep/pause decision and daily plan is saved.')
+        if review['milestone']:
+            lines.append(f'- Session {review["session_number"]} review reached. Look at the saved summary before treating any repeated pattern as dependable.')
+            for strategy,windows in review.get('checkpoint_results',{}).items():
+                for window in windows:
+                    if window['sessions']:
+                        lines.append(f'- {strategy}, {window["window"]}: {window["alerts"]} alerts; {window["hits"]} target/value hits, {window["stops"]} stops, {window["unresolved"]} unresolved.')
+            lines.append('- These periods can have different market conditions; a better result alone does not prove the new rules caused it.')
+            for r in records[-5:]:
+                lines.append(f'- {r["status"]}: {r["action"]} {self.LABELS[r["tag"]]}.')
+        else:
+            next_review=(review['session_number']//15+1)*15
+            lines.append(f'- Next checkpoint: session {next_review}. Calendar days without observed market data do not count.')
+        lines.append('These are observed patterns, not proven reasons. No forced new rule after a single win or loss.')
+        return lines
+
+
 class Bot:
     def __init__(self, api, directory=STATE_DIR):
         self.api=api
@@ -199,6 +477,7 @@ class Bot:
             'learner':{'weights':[0.]*10,'trained_ids':[],'brier':[]}}
         if self.state.get('version') != 1:
             raise RuntimeError('Unsupported state version')
+        self.journal=DailyJournal(self.state)
         self.predictor=None
         self.last_sync=0.
         self.last_kronos=None
@@ -469,25 +748,25 @@ class Bot:
         x=features(c,f,t)
         learner=self.state['learner']; p=probability(learner['weights'],x)
         trained=len(learner['trained_ids'])
-        reasons=[]
-        # Only outcomes from previous sessions train these weights.
-        if trained>=30 and p<.45:
-            reasons.append('learned score below 0.45')
-        # Empirical category suppression needs evidence, never a one-loss blacklist.
+        tags=self.journal.tags(c,f,t)
+        decision=self.journal.decide(day['date'],tags,p,trained)
         bucket=f'{side}:{"high_iv" if num(c["greeks"].get("iv"))>=25 else "normal_iv"}'
-        past=[z for z in self.state['trades'] if z['day']<day['date'] and z['strategy']=='S1'
-              and not z['shadow'] and z.get('bucket')==bucket and z['status'] in ('TARGET','STOP')]
-        if len(past)>=20 and sum(z['status']=='TARGET' for z in past)/len(past)<.35:
-            reasons.append('historically weak side/IV bucket')
-        if reasons:
-            day.setdefault('learning_skips',[]).append({'at':stamp(t),'reasons':reasons,'score':p})
+        metadata={'x':x,'score_at_entry':p,'trained_at_entry':trained,
+            'forecast_return':f,'bucket':bucket,'model':'Kronos-mini pretrained + online logistic ranker',
+            'journal_tags':tags,'journal_rule_id':decision['rule_id'],
+            'journal_changed':decision['changed'],'journal_reason':decision['reason'],
+            'base_allowed':decision['base_allowed']}
+        if not decision['allow']:
+            day.setdefault('learning_skips',[]).append({'at':stamp(t),'reasons':[decision['reason']],'score':p})
+            # Follow skipped setups with the same barriers to count BOTH avoided losses
+            # and missed winners; never train the live ranker on these counterfactuals.
+            self.create_trade('S1',c,t,day,{**metadata,'journal_role':'skipped_candidate'},shadow=True)
             return
-        main=self.create_trade('S1',c,t,day,{'x':x,'score_at_entry':p,'trained_at_entry':trained,
-            'forecast_return':f,'bucket':bucket,'model':'Kronos-mini pretrained + online logistic ranker'})
+        main=self.create_trade('S1',c,t,day,{**metadata,'journal_role':'main'})
         if main:
             opposite=[z for z in chain if z['strike']==center and z['side']!=side and liquid(z)]
             if opposite and self.fresh(opposite[0]['key'],t):
-                self.create_trade('S1',opposite[0],t,day,{'parent_id':main['id'],
+                self.create_trade('S1',opposite[0],t,day,{'parent_id':main['id'],'journal_role':'counter',
                     'counter_definition':'Buy opposite CE/PE at same strike and time; shadow only'},shadow=True)
 
     def finish(self,tr,status,t,exit_price=None,evidence='completed_1m_candle'):
@@ -565,7 +844,9 @@ class Bot:
     def report(self,day,t):
         if day.get('reported'):
             return
+        before_training=len(self.state['learner']['trained_ids'])
         self.train(day)
+        day['new_training_cases']=len(self.state['learner']['trained_ids'])-before_training
         if day.get('forecasts'):
             try:
                 bars={stamp(parse(b[0])):b for b in self.api.candles(INDEX,t,interval=5)}
@@ -590,7 +871,9 @@ class Bot:
                 elif 'net_estimated_pct' in z:
                     item+=f', net estimate {z["net_estimated_pct"]:+.2f}%'
                 lines.append(item)
-        shadows=[z for z in trades if z['shadow']]
+        shadows=[z for z in trades if z['shadow'] and z.get('journal_role')!='skipped_candidate']
+        skipped=[z for z in trades if z.get('journal_role')=='skipped_candidate']
+        lines.append(f'\nSilently followed skipped S1 setups: {len(skipped)}; targets missed {sum(z["status"]=="TARGET" for z in skipped)}; stops avoided {sum(z["status"]=="STOP" for z in skipped)}.')
         graded=[f for f in day.get('forecasts',[]) if 'actual_return' in f]
         if graded:
             lines.append(f'\nKronos underlying forecasts: {sum(f["direction_correct"] for f in graded)}/{len(graded)} correct direction; '
@@ -618,10 +901,19 @@ class Bot:
                 lines.append(f'{label}: winners mean {statistics.mean(wins):.3f}, losses mean {statistics.mean(losses):.3f}.')
         lines.append('S2 rules and S3 model are never rewritten by the learner. Losses can recur.')
         lines.extend(f'{k}: {v}' for k,v in day['diagnostics'].items())
+        review=self.journal.review(day)
+        plain=self.journal.english(review)
         text='\n'.join(lines)
         reports=self.dir/'reports';reports.mkdir(exist_ok=True)
         (reports/f'{day["date"]}.txt').write_text(text)
         (reports/f'{day["date"]}.json').write_text(json.dumps({'day':day,'trades':trades,'learner':learner},indent=2))
+        (reports/f'{day["date"]}_learning.txt').write_text('\n'.join(plain))
+        (reports/'learning_history.json').write_text(json.dumps(self.state['journal'],indent=2))
+        if review['milestone']:
+            (reports/f'session_{review["session_number"]}_review.txt').write_text('\n'.join(plain))
+            (reports/f'session_{review["session_number"]}_review.json').write_text(json.dumps(self.state['journal'],indent=2))
+        # Learning summary arrives first; the full results follow.
+        lines=plain+['\nDETAILED RESULTS']+lines
         chunks=[];chunk=''
         for line in lines:
             if len(chunk)+len(line)>3500:
@@ -656,6 +948,7 @@ class Bot:
         if not self.fresh(INDEX,t):
             self.diagnostic(day,'freshness','No recent completed Nifty candle: holiday, outage or stale feed; entries paused.')
             return
+        day['market_seen']=True
         day['diagnostics'].pop('freshness',None)
         chain=self.api.chain(day['expiry'])
         if not chain:
@@ -677,7 +970,7 @@ def main():
     (bot.dir/'reports').mkdir(exist_ok=True)
     if args.mode=='test':
         contracts=bot.api.get('/v2/option/contract',{'instrument_key':INDEX})
-        bot.emit('connection-'+stamp(now()),f'Nifty bot connection test OK. Upstox returned {len(contracts)} contracts. Paper-only; all 3 strategies configured.')
+        bot.emit('connection-'+stamp(now()),f'Nifty bot connection test OK. Upstox returned {len(contracts)} contracts. Paper-only; all 3 strategies configured. Daily Journal v2 enabled; Kronos unchanged.')
         bot.flush();bot.sync(force=True)
         return
     started=now()
