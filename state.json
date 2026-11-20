@@ -1632,7 +1632,7 @@
       "target": 106.74,
       "stop": null,
       "direction": "UP",
-      "status": "OPEN",
+      "status": "VALUE_REACHED",
       "shadow": false,
       "features_snapshot": {
         "key": "NSE_FO|64475",
@@ -1660,9 +1660,9 @@
         },
         "spot": 25465.95
       },
-      "last": 92.6,
-      "last_seen": "2026-11-20T09:48:12.967644+05:30",
-      "checked_until": "2026-11-20T09:46:00+05:30",
+      "last": 107.85,
+      "last_seen": "2026-11-20T09:51:00+05:30",
+      "checked_until": "2026-11-20T09:50:00+05:30",
       "entry_minute_excluded": true,
       "gap_pct": 18.35468864374905,
       "peer_iv": 14.597762277651615,
@@ -1674,7 +1674,10 @@
         "provider_theta": -20.0701
       },
       "fair_model": "leave_one_out_peer_IV_Black_Scholes",
-      "severity": "15\u201325%"
+      "severity": "15\u201325%",
+      "closed": "2026-11-20T09:51:00+05:30",
+      "exit_price": 106.74,
+      "evidence": "completed_1m_candle"
     },
     {
       "id": "2e27ff0694c425",
@@ -1749,7 +1752,7 @@
       "target": 87.27,
       "stop": null,
       "direction": "UP",
-      "status": "OPEN",
+      "status": "VALUE_REACHED",
       "shadow": false,
       "features_snapshot": {
         "key": "NSE_FO|64477",
@@ -1777,9 +1780,9 @@
         },
         "spot": 25465.95
       },
-      "last": 74.8,
-      "last_seen": "2026-11-20T09:48:12.967644+05:30",
-      "checked_until": "2026-11-20T09:47:00+05:30",
+      "last": 87.9,
+      "last_seen": "2026-11-20T09:51:00+05:30",
+      "checked_until": "2026-11-20T09:50:00+05:30",
       "entry_minute_excluded": true,
       "gap_pct": 20.36160093424086,
       "peer_iv": 14.586588809042688,
@@ -1791,7 +1794,10 @@
         "provider_theta": -18.8971
       },
       "fair_model": "leave_one_out_peer_IV_Black_Scholes",
-      "severity": "15\u201325%"
+      "severity": "15\u201325%",
+      "closed": "2026-11-20T09:51:00+05:30",
+      "exit_price": 87.27,
+      "evidence": "completed_1m_candle"
     },
     {
       "id": "33f4647b7c7572",
@@ -2272,6 +2278,63 @@
       "closed": "2026-11-20T09:47:00+05:30",
       "exit_price": 55.62,
       "evidence": "completed_1m_candle"
+    },
+    {
+      "id": "4b484ee4cfdd45",
+      "day": "2026-11-20",
+      "strategy": "S3",
+      "key": "NSE_FO|64487",
+      "strike": 25750.0,
+      "side": "CE",
+      "expiry": "2026-11-23",
+      "entry": 44.7,
+      "entered": "2026-11-20T09:51:18.944362+05:30",
+      "target": 54.84,
+      "stop": null,
+      "direction": "UP",
+      "status": "OPEN",
+      "shadow": false,
+      "features_snapshot": {
+        "key": "NSE_FO|64487",
+        "strike": 25750.0,
+        "side": "CE",
+        "expiry": "2026-11-23",
+        "market": {
+          "ltp": 44.7,
+          "volume": 24124035,
+          "oi": 3145545.0,
+          "close_price": 51.85,
+          "bid_price": 44.0,
+          "bid_qty": 3640,
+          "ask_price": 44.1,
+          "ask_qty": 260,
+          "prev_oi": 1699425.0
+        },
+        "greeks": {
+          "vega": 7.2346,
+          "theta": -15.6275,
+          "gamma": 0.0009,
+          "delta": 0.227,
+          "iv": 13.98,
+          "pop": 18.64
+        },
+        "spot": 25529.05
+      },
+      "last": 46.1,
+      "last_seen": "2026-11-20T09:53:24.385233+05:30",
+      "checked_until": "2026-11-20T09:52:00+05:30",
+      "entry_minute_excluded": true,
+      "gap_pct": 18.497055442444463,
+      "peer_iv": 13.978795459484603,
+      "time_to_expiry_years": 0.008863554529363268,
+      "greek_scenarios": {
+        "spot_up_1pct_approx": 87.2789012256125,
+        "spot_down_1pct_approx": -28.6229857743875,
+        "iv_up_1_percentage_point": 7.2346,
+        "provider_theta": -15.6275
+      },
+      "fair_model": "leave_one_out_peer_IV_Black_Scholes",
+      "severity": "15\u201325%"
     }
   ],
   "outbox": [
@@ -2633,6 +2696,21 @@
     {
       "id": "exit-3c16f6ea09df09",
       "text": "S3 | NIFTY 25500 CE\nVALUE_REACHED: \u20b9128.50\nEvidence: completed_1m_candle\nID 3c16f6ea09df09 | 09:47 IST",
+      "sent": true
+    },
+    {
+      "id": "exit-a509d91a7b1e68",
+      "text": "S3 | NIFTY 25550 CE\nVALUE_REACHED: \u20b9106.74\nEvidence: completed_1m_candle\nID a509d91a7b1e68 | 09:51 IST",
+      "sent": true
+    },
+    {
+      "id": "exit-efa0ec8aa7988a",
+      "text": "S3 | NIFTY 25600 CE\nVALUE_REACHED: \u20b987.27\nEvidence: completed_1m_candle\nID efa0ec8aa7988a | 09:51 IST",
+      "sent": true
+    },
+    {
+      "id": "entry-4b484ee4cfdd45",
+      "text": "S3 PAPER RESEARCH | NIFTY 25750 CE\nExpiry 2026-11-23 | 09:51:18 IST\nLTP/reference \u20b944.70\nFixed model value \u20b954.84; direction UP\nGap 18.5%; peer IV 13.98%\nNo stop: valuation watch only.\nIV 13.98% | \u0394 0.227 | \u0393 0.00090\n\u0398 -15.63 | Vega 7.23 | OI 3.14554e+06\nExpiry in 3.24 days\nID 4b484ee4cfdd45",
       "sent": true
     }
   ],
