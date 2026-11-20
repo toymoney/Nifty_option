@@ -2336,9 +2336,9 @@
         },
         "spot": 25529.05
       },
-      "last": 40.05,
-      "last_seen": "2026-11-20T10:39:39.953437+05:30",
-      "checked_until": "2026-11-20T10:38:00+05:30",
+      "last": 44.95,
+      "last_seen": "2026-11-20T10:44:49.132725+05:30",
+      "checked_until": "2026-11-20T10:43:00+05:30",
       "entry_minute_excluded": true,
       "gap_pct": 18.497055442444463,
       "peer_iv": 13.978795459484603,
@@ -2411,6 +2411,63 @@
       "closed": "2026-11-20T10:38:00+05:30",
       "exit_price": 235.48,
       "evidence": "completed_1m_candle"
+    },
+    {
+      "id": "7541ad3d8c784f",
+      "day": "2026-11-20",
+      "strategy": "S3",
+      "key": "NSE_FO|64488",
+      "strike": 25750.0,
+      "side": "PE",
+      "expiry": "2026-11-23",
+      "entry": 285.05,
+      "entered": "2026-11-20T10:40:11.975358+05:30",
+      "target": 246.92,
+      "stop": null,
+      "direction": "DOWN",
+      "status": "OPEN",
+      "shadow": false,
+      "features_snapshot": {
+        "key": "NSE_FO|64488",
+        "strike": 25750.0,
+        "side": "PE",
+        "expiry": "2026-11-23",
+        "market": {
+          "ltp": 285.05,
+          "volume": 1275885,
+          "oi": 176735.0,
+          "close_price": 272.2,
+          "bid_price": 284.15,
+          "bid_qty": 65,
+          "ask_price": 284.8,
+          "ask_qty": 195,
+          "prev_oi": 104390.0
+        },
+        "greeks": {
+          "vega": 6.9848,
+          "theta": -14.1491,
+          "gamma": 0.0009,
+          "delta": -0.7847,
+          "iv": 12.97,
+          "pop": 45.38
+        },
+        "spot": 25540.4
+      },
+      "last": 269.75,
+      "last_seen": "2026-11-20T10:44:49.132725+05:30",
+      "checked_until": "2026-11-20T10:43:00+05:30",
+      "entry_minute_excluded": true,
+      "gap_pct": -15.44410620889391,
+      "peer_iv": 12.821106490755863,
+      "time_to_expiry_years": 0.008770548726598174,
+      "greek_scenarios": {
+        "spot_up_1pct_approx": -171.06147735279998,
+        "spot_down_1pct_approx": 229.76956024720002,
+        "iv_up_1_percentage_point": 6.9848,
+        "provider_theta": -14.1491
+      },
+      "fair_model": "leave_one_out_peer_IV_Black_Scholes",
+      "severity": "15\u201325%"
     }
   ],
   "outbox": [
@@ -2797,6 +2854,11 @@
     {
       "id": "exit-458b972e5370cc",
       "text": "S3 | NIFTY 25700 PE\nVALUE_REACHED: \u20b9235.48\nEvidence: completed_1m_candle\nID 458b972e5370cc | 10:38 IST",
+      "sent": true
+    },
+    {
+      "id": "entry-7541ad3d8c784f",
+      "text": "S3 PAPER RESEARCH | NIFTY 25750 PE\nExpiry 2026-11-23 | 10:40:11 IST\nLTP/reference \u20b9285.05\nFixed model value \u20b9246.92; direction DOWN\nGap -15.4%; peer IV 12.82%\nNo stop: valuation watch only.\nIV 12.97% | \u0394 -0.785 | \u0393 0.00090\n\u0398 -14.15 | Vega 6.98 | OI 176735\nExpiry in 3.20 days\nID 7541ad3d8c784f",
       "sent": true
     }
   ],
