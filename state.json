@@ -150,7 +150,9 @@
     },
     "2026-11-20": {
       "date": "2026-11-20",
-      "diagnostics": {},
+      "diagnostics": {
+        "Kronos": "Native pretrained Kronos-mini forecast successful; no base-model fine-tuning."
+      },
       "expiry": "2026-11-23",
       "previous_date": "2026-11-18",
       "previous_spot": 25227.95,
@@ -176,7 +178,18 @@
           "key": "NSE_FO|64453"
         }
       },
-      "opening_done": true
+      "opening_done": true,
+      "forecast_slot": "20261120091",
+      "forecasts": [
+        {
+          "at": "2026-11-20T09:36:00.132000+05:30",
+          "return_15m": -0.0009290281857162741,
+          "reference_close": 25466.8,
+          "reference_bar": "2026-11-20T09:30:00+05:30",
+          "target_bar": "2026-11-20T09:45:00+05:30",
+          "predicted_close": 25443.140625
+        }
+      ]
     }
   },
   "trades": [
@@ -1107,9 +1120,9 @@
         },
         "spot": 25465.95
       },
-      "last": 72.15,
-      "last_seen": "2026-11-20T09:32:06.704421+05:30",
-      "checked_until": "2026-11-20T09:31:00+05:30",
+      "last": 66.05,
+      "last_seen": "2026-11-20T09:37:39.780539+05:30",
+      "checked_until": "2026-11-20T09:36:00+05:30",
       "entry_minute_excluded": true,
       "gap_pct": -24.088757484784555,
       "peer_iv": 14.827088765345628,
@@ -1164,9 +1177,9 @@
         },
         "spot": 25465.95
       },
-      "last": 88.95,
-      "last_seen": "2026-11-20T09:32:06.704421+05:30",
-      "checked_until": "2026-11-20T09:31:00+05:30",
+      "last": 81.65,
+      "last_seen": "2026-11-20T09:37:39.780539+05:30",
+      "checked_until": "2026-11-20T09:35:00+05:30",
       "entry_minute_excluded": true,
       "gap_pct": -24.010364542489672,
       "peer_iv": 14.666842583015214,
@@ -1221,9 +1234,9 @@
         },
         "spot": 25465.95
       },
-      "last": 108.5,
-      "last_seen": "2026-11-20T09:32:06.704421+05:30",
-      "checked_until": "2026-11-20T09:31:00+05:30",
+      "last": 100.1,
+      "last_seen": "2026-11-20T09:37:39.780539+05:30",
+      "checked_until": "2026-11-20T09:35:00+05:30",
       "entry_minute_excluded": true,
       "gap_pct": -22.29276054771064,
       "peer_iv": 14.541319557513477,
@@ -1278,9 +1291,9 @@
         },
         "spot": 25465.95
       },
-      "last": 141.0,
-      "last_seen": "2026-11-20T09:32:06.704421+05:30",
-      "checked_until": "2026-11-20T09:31:00+05:30",
+      "last": 150.85,
+      "last_seen": "2026-11-20T09:37:39.780539+05:30",
+      "checked_until": "2026-11-20T09:35:00+05:30",
       "entry_minute_excluded": true,
       "gap_pct": 15.575546993459971,
       "peer_iv": 14.714768228602503,
@@ -1335,9 +1348,9 @@
         },
         "spot": 25465.95
       },
-      "last": 130.75,
-      "last_seen": "2026-11-20T09:32:06.704421+05:30",
-      "checked_until": "2026-11-20T09:31:00+05:30",
+      "last": 121.4,
+      "last_seen": "2026-11-20T09:37:39.780539+05:30",
+      "checked_until": "2026-11-20T09:35:00+05:30",
       "entry_minute_excluded": true,
       "gap_pct": -21.017823586826744,
       "peer_iv": 14.48987156045947,
@@ -1392,9 +1405,9 @@
         },
         "spot": 25465.95
       },
-      "last": 116.85,
-      "last_seen": "2026-11-20T09:32:06.704421+05:30",
-      "checked_until": "2026-11-20T09:31:00+05:30",
+      "last": 123.8,
+      "last_seen": "2026-11-20T09:37:39.780539+05:30",
+      "checked_until": "2026-11-20T09:36:00+05:30",
       "entry_minute_excluded": true,
       "gap_pct": 16.26461155930344,
       "peer_iv": 14.646525715010887,
@@ -1449,9 +1462,9 @@
         },
         "spot": 25465.95
       },
-      "last": 157.2,
-      "last_seen": "2026-11-20T09:32:06.704421+05:30",
-      "checked_until": "2026-11-20T09:31:00+05:30",
+      "last": 147.35,
+      "last_seen": "2026-11-20T09:37:39.780539+05:30",
+      "checked_until": "2026-11-20T09:36:00+05:30",
       "entry_minute_excluded": true,
       "gap_pct": -20.575738387117067,
       "peer_iv": 14.340775334033792,
@@ -1506,9 +1519,9 @@
         },
         "spot": 25465.95
       },
-      "last": 96.1,
-      "last_seen": "2026-11-20T09:32:06.704421+05:30",
-      "checked_until": "2026-11-20T09:31:00+05:30",
+      "last": 103.15,
+      "last_seen": "2026-11-20T09:37:39.780539+05:30",
+      "checked_until": "2026-11-20T09:36:00+05:30",
       "entry_minute_excluded": true,
       "gap_pct": 17.04388295424569,
       "peer_iv": 14.55885472478048,
@@ -1563,9 +1576,9 @@
         },
         "spot": 25465.95
       },
-      "last": 186.05,
-      "last_seen": "2026-11-20T09:32:06.704421+05:30",
-      "checked_until": "2026-11-20T09:31:00+05:30",
+      "last": 173.65,
+      "last_seen": "2026-11-20T09:37:39.780539+05:30",
+      "checked_until": "2026-11-20T09:35:00+05:30",
       "entry_minute_excluded": true,
       "gap_pct": -18.35015049613676,
       "peer_iv": 14.421701151827776,
@@ -1620,9 +1633,9 @@
         },
         "spot": 25465.95
       },
-      "last": 77.95,
-      "last_seen": "2026-11-20T09:32:06.704421+05:30",
-      "checked_until": "2026-11-20T09:31:00+05:30",
+      "last": 83.05,
+      "last_seen": "2026-11-20T09:37:39.780539+05:30",
+      "checked_until": "2026-11-20T09:36:00+05:30",
       "entry_minute_excluded": true,
       "gap_pct": 18.35468864374905,
       "peer_iv": 14.597762277651615,
@@ -1677,9 +1690,9 @@
         },
         "spot": 25465.95
       },
-      "last": 217.65,
-      "last_seen": "2026-11-20T09:32:06.704421+05:30",
-      "checked_until": "2026-11-20T09:31:00+05:30",
+      "last": 206.5,
+      "last_seen": "2026-11-20T09:37:39.780539+05:30",
+      "checked_until": "2026-11-20T09:36:00+05:30",
       "entry_minute_excluded": true,
       "gap_pct": -16.961081649621754,
       "peer_iv": 14.384240605711627,
@@ -1734,9 +1747,9 @@
         },
         "spot": 25465.95
       },
-      "last": 62.15,
-      "last_seen": "2026-11-20T09:32:06.704421+05:30",
-      "checked_until": "2026-11-20T09:31:00+05:30",
+      "last": 67.5,
+      "last_seen": "2026-11-20T09:37:39.780539+05:30",
+      "checked_until": "2026-11-20T09:36:00+05:30",
       "entry_minute_excluded": true,
       "gap_pct": 20.36160093424086,
       "peer_iv": 14.586588809042688,
@@ -1791,9 +1804,9 @@
         },
         "spot": 25465.95
       },
-      "last": 252.75,
-      "last_seen": "2026-11-20T09:32:06.704421+05:30",
-      "checked_until": "2026-11-20T09:31:00+05:30",
+      "last": 238.2,
+      "last_seen": "2026-11-20T09:37:39.780539+05:30",
+      "checked_until": "2026-11-20T09:36:00+05:30",
       "entry_minute_excluded": true,
       "gap_pct": -16.042288310498172,
       "peer_iv": 14.330199215072358,
@@ -1848,9 +1861,9 @@
         },
         "spot": 25465.95
       },
-      "last": 49.5,
-      "last_seen": "2026-11-20T09:32:06.704421+05:30",
-      "checked_until": "2026-11-20T09:31:00+05:30",
+      "last": 53.7,
+      "last_seen": "2026-11-20T09:37:39.780539+05:30",
+      "checked_until": "2026-11-20T09:36:00+05:30",
       "entry_minute_excluded": true,
       "gap_pct": 20.38247515649136,
       "peer_iv": 14.510000000000002,
@@ -1877,7 +1890,7 @@
       "target": 53.51,
       "stop": null,
       "direction": "DOWN",
-      "status": "OPEN",
+      "status": "VALUE_REACHED",
       "shadow": false,
       "features_snapshot": {
         "key": "NSE_FO|64452",
@@ -1905,9 +1918,9 @@
         },
         "spot": 25420.75
       },
-      "last": 58.4,
-      "last_seen": "2026-11-20T09:32:06.704421+05:30",
-      "checked_until": "2026-11-20T09:31:00+05:30",
+      "last": 51.9,
+      "last_seen": "2026-11-20T09:33:47.993956+05:30",
+      "checked_until": "2026-11-20T09:32:00+05:30",
       "entry_minute_excluded": true,
       "gap_pct": -18.007566168356025,
       "peer_iv": 14.674727916150406,
@@ -1919,7 +1932,10 @@
         "provider_theta": -18.0329
       },
       "fair_model": "leave_one_out_peer_IV_Black_Scholes",
-      "severity": "15\u201325%"
+      "severity": "15\u201325%",
+      "closed": "2026-11-20T09:33:47.993956+05:30",
+      "exit_price": 51.9,
+      "evidence": "polled_LTP valuation touch"
     },
     {
       "id": "a920d80b041219",
@@ -1962,9 +1978,9 @@
         },
         "spot": 25448.45
       },
-      "last": 231.8,
-      "last_seen": "2026-11-20T09:32:06.704421+05:30",
-      "checked_until": "2026-11-20T09:31:00+05:30",
+      "last": 244.95,
+      "last_seen": "2026-11-20T09:37:39.780539+05:30",
+      "checked_until": "2026-11-20T09:36:00+05:30",
       "entry_minute_excluded": true,
       "gap_pct": 15.128338727533478,
       "peer_iv": 13.949214325801652,
@@ -2019,9 +2035,9 @@
         },
         "spot": 25448.45
       },
-      "last": 199.25,
-      "last_seen": "2026-11-20T09:32:06.704421+05:30",
-      "checked_until": "2026-11-20T09:31:00+05:30",
+      "last": 210.9,
+      "last_seen": "2026-11-20T09:37:39.780539+05:30",
+      "checked_until": "2026-11-20T09:35:00+05:30",
       "entry_minute_excluded": true,
       "gap_pct": 16.336679162994784,
       "peer_iv": 13.94099929358458,
@@ -2076,9 +2092,9 @@
         },
         "spot": 25448.45
       },
-      "last": 168.95,
-      "last_seen": "2026-11-20T09:32:06.704421+05:30",
-      "checked_until": "2026-11-20T09:31:00+05:30",
+      "last": 178.9,
+      "last_seen": "2026-11-20T09:37:39.780539+05:30",
+      "checked_until": "2026-11-20T09:35:00+05:30",
       "entry_minute_excluded": true,
       "gap_pct": 17.357955860879702,
       "peer_iv": 13.943591389542084,
@@ -2133,9 +2149,9 @@
         },
         "spot": 25448.45
       },
-      "last": 289.0,
-      "last_seen": "2026-11-20T09:32:06.704421+05:30",
-      "checked_until": "2026-11-20T09:31:00+05:30",
+      "last": 275.35,
+      "last_seen": "2026-11-20T09:37:39.780539+05:30",
+      "checked_until": "2026-11-20T09:36:00+05:30",
       "entry_minute_excluded": true,
       "gap_pct": -16.24832020522543,
       "peer_iv": 14.988904590567968,
@@ -2145,6 +2161,63 @@
         "spot_down_1pct_approx": 220.71899393311253,
         "iv_up_1_percentage_point": 7.5735,
         "provider_theta": -17.2568
+      },
+      "fair_model": "leave_one_out_peer_IV_Black_Scholes",
+      "severity": "15\u201325%"
+    },
+    {
+      "id": "d9da2ef0305cc3",
+      "day": "2026-11-20",
+      "strategy": "S3",
+      "key": "NSE_FO|64481",
+      "strike": 25700.0,
+      "side": "CE",
+      "expiry": "2026-11-23",
+      "entry": 46.0,
+      "entered": "2026-11-20T09:35:23.382644+05:30",
+      "target": 55.62,
+      "stop": null,
+      "direction": "UP",
+      "status": "OPEN",
+      "shadow": false,
+      "features_snapshot": {
+        "key": "NSE_FO|64481",
+        "strike": 25700.0,
+        "side": "CE",
+        "expiry": "2026-11-23",
+        "market": {
+          "ltp": 46.0,
+          "volume": 23262980,
+          "oi": 7129525.0,
+          "close_price": 65.65,
+          "bid_price": 45.9,
+          "bid_qty": 2925,
+          "ask_price": 46.1,
+          "ask_qty": 1625,
+          "prev_oi": 5443230.0
+        },
+        "greeks": {
+          "vega": 7.3444,
+          "theta": -16.018,
+          "gamma": 0.0009,
+          "delta": 0.2332,
+          "iv": 14.16,
+          "pop": 19.06
+        },
+        "spot": 25476.5
+      },
+      "last": 42.25,
+      "last_seen": "2026-11-20T09:37:39.780539+05:30",
+      "checked_until": "2026-11-20T09:36:00+05:30",
+      "entry_minute_excluded": true,
+      "gap_pct": 17.297882709053212,
+      "peer_iv": 14.166155295313047,
+      "time_to_expiry_years": 0.008893855192668696,
+      "greek_scenarios": {
+        "spot_up_1pct_approx": 88.61854035125,
+        "spot_down_1pct_approx": -30.203855648749997,
+        "iv_up_1_percentage_point": 7.3444,
+        "provider_theta": -16.018
       },
       "fair_model": "leave_one_out_peer_IV_Black_Scholes",
       "severity": "15\u201325%"
@@ -2414,6 +2487,16 @@
     {
       "id": "entry-fe01c98be988a4",
       "text": "S3 PAPER RESEARCH | NIFTY 25650 PE\nExpiry 2026-11-23 | 09:28:46 IST\nLTP/reference \u20b9301.10\nFixed model value \u20b9259.01; direction DOWN\nGap -16.2%; peer IV 14.99%\nNo stop: valuation watch only.\nIV 14.82% | \u0394 -0.753 | \u0393 0.00090\n\u0398 -17.26 | Vega 7.57 | OI 217490\nExpiry in 3.25 days\nID fe01c98be988a4",
+      "sent": true
+    },
+    {
+      "id": "exit-b9dda0ae888951",
+      "text": "S3 | NIFTY 25200 PE\nVALUE_REACHED: \u20b951.90\nEvidence: polled_LTP valuation touch\nID b9dda0ae888951 | 09:33 IST",
+      "sent": true
+    },
+    {
+      "id": "entry-d9da2ef0305cc3",
+      "text": "S3 PAPER RESEARCH | NIFTY 25700 CE\nExpiry 2026-11-23 | 09:35:23 IST\nLTP/reference \u20b946.00\nFixed model value \u20b955.62; direction UP\nGap 17.3%; peer IV 14.17%\nNo stop: valuation watch only.\nIV 14.16% | \u0394 0.233 | \u0393 0.00090\n\u0398 -16.02 | Vega 7.34 | OI 7.12952e+06\nExpiry in 3.25 days\nID d9da2ef0305cc3",
       "sent": true
     }
   ],
