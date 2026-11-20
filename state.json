@@ -2328,9 +2328,9 @@
         },
         "spot": 25529.05
       },
-      "last": 42.15,
-      "last_seen": "2026-11-20T10:13:54.210684+05:30",
-      "checked_until": "2026-11-20T10:12:00+05:30",
+      "last": 38.25,
+      "last_seen": "2026-11-20T10:19:01.515320+05:30",
+      "checked_until": "2026-11-20T10:18:00+05:30",
       "entry_minute_excluded": true,
       "gap_pct": 18.497055442444463,
       "peer_iv": 13.978795459484603,
@@ -2340,6 +2340,63 @@
         "spot_down_1pct_approx": -28.6229857743875,
         "iv_up_1_percentage_point": 7.2346,
         "provider_theta": -15.6275
+      },
+      "fair_model": "leave_one_out_peer_IV_Black_Scholes",
+      "severity": "15\u201325%"
+    },
+    {
+      "id": "458b972e5370cc",
+      "day": "2026-11-20",
+      "strategy": "S3",
+      "key": "NSE_FO|64482",
+      "strike": 25700.0,
+      "side": "PE",
+      "expiry": "2026-11-23",
+      "entry": 271.8,
+      "entered": "2026-11-20T10:19:01.515320+05:30",
+      "target": 235.48,
+      "stop": null,
+      "direction": "DOWN",
+      "status": "OPEN",
+      "shadow": false,
+      "features_snapshot": {
+        "key": "NSE_FO|64482",
+        "strike": 25700.0,
+        "side": "PE",
+        "expiry": "2026-11-23",
+        "market": {
+          "ltp": 271.8,
+          "volume": 4243070,
+          "oi": 766415.0,
+          "close_price": 236.4,
+          "bid_price": 271.65,
+          "bid_qty": 130,
+          "ask_price": 272.2,
+          "ask_qty": 130,
+          "prev_oi": 517855.0
+        },
+        "greeks": {
+          "vega": 7.5156,
+          "theta": -15.7602,
+          "gamma": 0.001,
+          "delta": -0.7551,
+          "iv": 13.49,
+          "pop": 44.51
+        },
+        "spot": 25513.35
+      },
+      "last": 271.8,
+      "last_seen": "2026-11-20T10:19:01.515320+05:30",
+      "checked_until": "2026-11-20T10:19:01.515320+05:30",
+      "entry_minute_excluded": true,
+      "gap_pct": -15.425916457255425,
+      "peer_iv": 13.45637962042614,
+      "time_to_expiry_years": 0.00881083475012684,
+      "greek_scenarios": {
+        "spot_up_1pct_approx": -160.104754438875,
+        "spot_down_1pct_approx": 225.197857261125,
+        "iv_up_1_percentage_point": 7.5156,
+        "provider_theta": -15.7602
       },
       "fair_model": "leave_one_out_peer_IV_Black_Scholes",
       "severity": "15\u201325%"
@@ -2719,6 +2776,11 @@
     {
       "id": "entry-4b484ee4cfdd45",
       "text": "S3 PAPER RESEARCH | NIFTY 25750 CE\nExpiry 2026-11-23 | 09:51:18 IST\nLTP/reference \u20b944.70\nFixed model value \u20b954.84; direction UP\nGap 18.5%; peer IV 13.98%\nNo stop: valuation watch only.\nIV 13.98% | \u0394 0.227 | \u0393 0.00090\n\u0398 -15.63 | Vega 7.23 | OI 3.14554e+06\nExpiry in 3.24 days\nID 4b484ee4cfdd45",
+      "sent": true
+    },
+    {
+      "id": "entry-458b972e5370cc",
+      "text": "S3 PAPER RESEARCH | NIFTY 25700 PE\nExpiry 2026-11-23 | 10:19:01 IST\nLTP/reference \u20b9271.80\nFixed model value \u20b9235.48; direction DOWN\nGap -15.4%; peer IV 13.46%\nNo stop: valuation watch only.\nIV 13.49% | \u0394 -0.755 | \u0393 0.00100\n\u0398 -15.76 | Vega 7.52 | OI 766415\nExpiry in 3.22 days\nID 458b972e5370cc",
       "sent": true
     }
   ],
