@@ -2336,9 +2336,9 @@
         },
         "spot": 25529.05
       },
-      "last": 50.95,
-      "last_seen": "2026-11-20T10:49:57.352602+05:30",
-      "checked_until": "2026-11-20T10:48:00+05:30",
+      "last": 47.65,
+      "last_seen": "2026-11-20T10:55:05.333326+05:30",
+      "checked_until": "2026-11-20T10:54:00+05:30",
       "entry_minute_excluded": true,
       "gap_pct": 18.497055442444463,
       "peer_iv": 13.978795459484603,
@@ -2425,7 +2425,7 @@
       "target": 246.92,
       "stop": null,
       "direction": "DOWN",
-      "status": "OPEN",
+      "status": "VALUE_REACHED",
       "shadow": false,
       "features_snapshot": {
         "key": "NSE_FO|64488",
@@ -2453,9 +2453,9 @@
         },
         "spot": 25540.4
       },
-      "last": 250.8,
-      "last_seen": "2026-11-20T10:49:57.352602+05:30",
-      "checked_until": "2026-11-20T10:48:00+05:30",
+      "last": 250.55,
+      "last_seen": "2026-11-20T10:50:00+05:30",
+      "checked_until": "2026-11-20T10:49:00+05:30",
       "entry_minute_excluded": true,
       "gap_pct": -15.44410620889391,
       "peer_iv": 12.821106490755863,
@@ -2467,7 +2467,10 @@
         "provider_theta": -14.1491
       },
       "fair_model": "leave_one_out_peer_IV_Black_Scholes",
-      "severity": "15\u201325%"
+      "severity": "15\u201325%",
+      "closed": "2026-11-20T10:50:00+05:30",
+      "exit_price": 246.92,
+      "evidence": "completed_1m_candle"
     }
   ],
   "outbox": [
@@ -2859,6 +2862,11 @@
     {
       "id": "entry-7541ad3d8c784f",
       "text": "S3 PAPER RESEARCH | NIFTY 25750 PE\nExpiry 2026-11-23 | 10:40:11 IST\nLTP/reference \u20b9285.05\nFixed model value \u20b9246.92; direction DOWN\nGap -15.4%; peer IV 12.82%\nNo stop: valuation watch only.\nIV 12.97% | \u0394 -0.785 | \u0393 0.00090\n\u0398 -14.15 | Vega 6.98 | OI 176735\nExpiry in 3.20 days\nID 7541ad3d8c784f",
+      "sent": true
+    },
+    {
+      "id": "exit-7541ad3d8c784f",
+      "text": "S3 | NIFTY 25750 PE\nVALUE_REACHED: \u20b9246.92\nEvidence: completed_1m_candle\nID 7541ad3d8c784f | 10:50 IST",
       "sent": true
     }
   ],
