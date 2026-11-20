@@ -150,7 +150,9 @@
     },
     "2026-11-20": {
       "date": "2026-11-20",
-      "diagnostics": {},
+      "diagnostics": {
+        "freshness": "No recent completed Nifty candle: holiday, outage or stale feed; entries paused."
+      },
       "expiry": "2026-11-23",
       "previous_date": "2026-11-18",
       "previous_spot": 25227.95,
