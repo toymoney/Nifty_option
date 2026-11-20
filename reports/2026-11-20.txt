@@ -1,0 +1,45 @@
+NIFTY PAPER REPORT | 2026-11-20 | 16:15 IST
+Values/returns are research estimates, not executed trades.
+
+S1: 0 alerts
+
+S2: 1 alerts
+25250 CE: TARGET; entry 224.80, last 268.95, net estimate +14.50%
+
+S3: 26 alerts
+25250 PE: VALUE_REACHED; entry 69.75, last 54.20, fixed fair 56.21, remaining gap +3.6%
+25300 PE: VALUE_REACHED; entry 85.85, last 67.60, fixed fair 69.23, remaining gap +2.4%
+25350 PE: VALUE_REACHED; entry 103.80, last 83.15, fixed fair 84.88, remaining gap +2.0%
+25400 CE: VALUE_REACHED; entry 154.25, last 180.20, fixed fair 182.71, remaining gap +1.4%
+25400 PE: VALUE_REACHED; entry 125.60, last 101.95, fixed fair 103.79, remaining gap +1.8%
+25450 CE: VALUE_REACHED; entry 129.20, last 151.55, fixed fair 154.30, remaining gap +1.8%
+25450 PE: VALUE_REACHED; entry 150.15, last 123.50, fixed fair 124.53, remaining gap +0.8%
+25500 CE: VALUE_REACHED; entry 106.60, last 126.35, fixed fair 128.50, remaining gap +1.7%
+25500 PE: VALUE_REACHED; entry 177.90, last 149.40, fixed fair 150.32, remaining gap +0.6%
+25550 CE: VALUE_REACHED; entry 87.15, last 107.85, fixed fair 106.74, remaining gap -1.0%
+25550 PE: VALUE_REACHED; entry 208.00, last 177.15, fixed fair 177.84, remaining gap +0.4%
+25600 CE: VALUE_REACHED; entry 69.50, last 87.90, fixed fair 87.27, remaining gap -0.7%
+25600 PE: VALUE_REACHED; entry 241.40, last 205.20, fixed fair 208.03, remaining gap +1.4%
+25650 CE: VALUE_REACHED; entry 55.65, last 68.15, fixed fair 69.90, remaining gap +2.5%
+25200 PE: VALUE_REACHED; entry 63.15, last 51.90, fixed fair 53.51, remaining gap +3.0%
+25250 CE: VALUE_REACHED; entry 223.25, last 255.45, fixed fair 263.04, remaining gap +2.9%
+25300 CE: VALUE_REACHED; entry 190.45, last 220.40, fixed fair 227.64, remaining gap +3.2%
+25350 CE: VALUE_REACHED; entry 161.15, last 187.60, fixed fair 195.00, remaining gap +3.8%
+25650 PE: VALUE_REACHED; entry 301.10, last 256.80, fixed fair 259.01, remaining gap +0.9%
+25700 CE: VALUE_REACHED; entry 46.00, last 54.30, fixed fair 55.62, remaining gap +2.4%
+25750 CE: VALUE_REACHED; entry 44.70, last 54.25, fixed fair 54.84, remaining gap +1.1%
+25700 PE: VALUE_REACHED; entry 271.80, last 235.35, fixed fair 235.48, remaining gap +0.1%
+25750 PE: VALUE_REACHED; entry 285.05, last 250.55, fixed fair 246.92, remaining gap -1.5%
+25800 CE: VALUE_REACHED; entry 35.70, last 45.25, fixed fair 42.75, remaining gap -5.8%
+25850 CE: VALUE_REACHED; entry 40.40, last 47.75, fixed fair 47.68, remaining gap -0.1%
+25900 CE: VALUE_REACHED; entry 41.20, last 47.40, fixed fair 48.90, remaining gap +3.1%
+
+Silently followed skipped S1 setups: 0; targets missed 0; stops avoided 0.
+
+Kronos underlying forecasts: 5/10 correct direction; MAE 0.089 percentage points.
+
+Counter trades (opposite option, shadow): 0
+
+Learning: 0 resolved S1 samples. Warm-up; no learned filtering yet.
+S2 rules and S3 model are never rewritten by the learner. Losses can recur.
+Kronos: Native pretrained Kronos-mini forecast successful; no base-model fine-tuning.
