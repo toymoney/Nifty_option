@@ -3753,7 +3753,7 @@
       "target": 218.87,
       "stop": null,
       "direction": "DOWN",
-      "status": "OPEN",
+      "status": "VALUE_REACHED",
       "shadow": false,
       "features_snapshot": {
         "key": "NSE_FO|64473",
@@ -3781,9 +3781,9 @@
         },
         "spot": 25705.55
       },
-      "last": 219.9,
-      "last_seen": "2026-11-23T09:28:57.608115+05:30",
-      "checked_until": "2026-11-23T09:27:13.662044+05:30",
+      "last": 214.05,
+      "last_seen": "2026-11-23T09:29:00+05:30",
+      "checked_until": "2026-11-23T09:28:00+05:30",
       "entry_minute_excluded": true,
       "gap_pct": -16.37213387655031,
       "peer_iv": 27.6203265978826,
@@ -3795,7 +3795,10 @@
         "provider_theta": -82.1011
       },
       "fair_model": "leave_one_out_peer_IV_Black_Scholes",
-      "severity": "15\u201325%"
+      "severity": "15\u201325%",
+      "closed": "2026-11-23T09:29:00+05:30",
+      "exit_price": 218.87,
+      "evidence": "completed_1m_candle"
     },
     {
       "id": "aeb7f9c192b6d8",
@@ -3915,6 +3918,66 @@
       "severity": "15\u201325%",
       "closed": "2026-11-23T09:28:57.608115+05:30",
       "exit_price": 184.55,
+      "evidence": "polled_LTP valuation touch"
+    },
+    {
+      "id": "f10272725eeeca",
+      "day": "2026-11-23",
+      "strategy": "S3",
+      "key": "NSE_FO|64471",
+      "strike": 25450.0,
+      "side": "PE",
+      "expiry": "2026-11-23",
+      "entry": 32.7,
+      "entered": "2026-11-23T09:32:33.355598+05:30",
+      "target": 38.66,
+      "stop": null,
+      "direction": "UP",
+      "status": "VALUE_REACHED",
+      "shadow": false,
+      "features_snapshot": {
+        "key": "NSE_FO|64471",
+        "strike": 25450.0,
+        "side": "PE",
+        "expiry": "2026-11-23",
+        "market": {
+          "ltp": 32.7,
+          "volume": 46387250,
+          "oi": 7457125.0,
+          "close_price": 27.15,
+          "bid_price": 32.55,
+          "bid_qty": 325,
+          "ask_price": 32.7,
+          "ask_qty": 2925,
+          "prev_oi": 4294680.0
+        },
+        "greeks": {
+          "vega": 1.9329,
+          "theta": -160.3928,
+          "gamma": 0.001,
+          "delta": -0.2104,
+          "iv": 41.26,
+          "pop": 18.01
+        },
+        "spot": 25644.5
+      },
+      "last": 39.1,
+      "last_seen": "2026-11-23T09:33:04.683049+05:30",
+      "checked_until": "2026-11-23T09:32:33.355598+05:30",
+      "entry_minute_excluded": true,
+      "gap_pct": 15.409835700300324,
+      "peer_iv": 41.30066125457955,
+      "time_to_expiry_years": 0.0006800686327371893,
+      "greek_scenarios": {
+        "spot_up_1pct_approx": -21.074008987499994,
+        "spot_down_1pct_approx": 86.8380470125,
+        "iv_up_1_percentage_point": 1.9329,
+        "provider_theta": -160.3928
+      },
+      "fair_model": "leave_one_out_peer_IV_Black_Scholes",
+      "severity": "15\u201325%",
+      "closed": "2026-11-23T09:33:04.683049+05:30",
+      "exit_price": 39.1,
       "evidence": "polled_LTP valuation touch"
     }
   ],
@@ -4557,6 +4620,21 @@
     {
       "id": "exit-3e2408e6b16947",
       "text": "S3 | NIFTY 25550 CE\nVALUE_REACHED: \u20b9184.55\nEvidence: polled_LTP valuation touch\nID 3e2408e6b16947 | 09:28 IST",
+      "sent": true
+    },
+    {
+      "id": "exit-db0497905f14b9",
+      "text": "S3 | NIFTY 25500 CE\nVALUE_REACHED: \u20b9218.87\nEvidence: completed_1m_candle\nID db0497905f14b9 | 09:29 IST",
+      "sent": true
+    },
+    {
+      "id": "entry-f10272725eeeca",
+      "text": "S3 PAPER RESEARCH | NIFTY 25450 PE\nExpiry 2026-11-23 | 09:32:33 IST\nLTP/reference \u20b932.70\nFixed model value \u20b938.66; direction UP\nGap 15.4%; peer IV 41.30%\nNo stop: valuation watch only.\nIV 41.26% | \u0394 -0.210 | \u0393 0.00100\n\u0398 -160.39 | Vega 1.93 | OI 7.45712e+06\nExpiry in 0.25 days\nID f10272725eeeca",
+      "sent": true
+    },
+    {
+      "id": "exit-f10272725eeeca",
+      "text": "S3 | NIFTY 25450 PE\nVALUE_REACHED: \u20b939.10\nEvidence: polled_LTP valuation touch\nID f10272725eeeca | 09:33 IST",
       "sent": true
     }
   ],
