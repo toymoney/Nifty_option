@@ -70,6 +70,41 @@
       "active_forward": null,
       "new_training_cases": 0,
       "milestone": false
+    },
+    "2026-11-21": {
+      "date": "2026-11-21",
+      "session_number": 2,
+      "market_session": false,
+      "today_summary": {
+        "S1": {
+          "alerts": 0,
+          "target": 0,
+          "stop": 0,
+          "unresolved": 0
+        },
+        "S2": {
+          "alerts": 0,
+          "target": 0,
+          "stop": 0,
+          "unresolved": 0
+        },
+        "S3": {
+          "alerts": 0,
+          "target": 0,
+          "stop": 0,
+          "unresolved": 0
+        }
+      },
+      "patterns": [],
+      "actions": [],
+      "tomorrow_policy": null,
+      "evaluated_rule": null,
+      "tomorrow_policies": [],
+      "evaluated_rules": [],
+      "active_rules": [],
+      "active_forward": null,
+      "new_training_cases": 0,
+      "milestone": false
     }
   },
   "rules": {},

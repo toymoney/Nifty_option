@@ -1,0 +1,32 @@
+{
+  "day": {
+    "date": "2026-11-21",
+    "diagnostics": {},
+    "expiry": "2026-11-23",
+    "previous_date": "2026-11-20",
+    "previous_spot": 25800.6,
+    "previous_atm": 25800,
+    "opening_contracts": {
+      "CE": "NSE_FO|64489",
+      "PE": "NSE_FO|64490"
+    },
+    "new_training_cases": 0
+  },
+  "trades": [],
+  "learner": {
+    "weights": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "trained_ids": [],
+    "brier": []
+  }
+}

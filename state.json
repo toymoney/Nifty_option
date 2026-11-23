@@ -305,7 +305,39 @@
       "opening_contracts": {
         "CE": "NSE_FO|64489",
         "PE": "NSE_FO|64490"
-      }
+      },
+      "new_training_cases": 0,
+      "reported": true
+    },
+    "2026-11-23": {
+      "date": "2026-11-23",
+      "diagnostics": {},
+      "expiry": "2026-11-23",
+      "previous_date": "2026-11-20",
+      "previous_spot": 25800.6,
+      "previous_atm": 25800,
+      "opening_contracts": {
+        "CE": "NSE_FO|64489",
+        "PE": "NSE_FO|64490"
+      },
+      "market_seen": true,
+      "opening_checked": [
+        "CE",
+        "PE"
+      ],
+      "opening_reference": {
+        "CE": {
+          "close": 102.55,
+          "open": 177.0,
+          "key": "NSE_FO|64489"
+        },
+        "PE": {
+          "close": 130.05,
+          "open": 41.05,
+          "key": "NSE_FO|64490"
+        }
+      },
+      "opening_done": true
     }
   },
   "trades": [
@@ -2754,6 +2786,59 @@
       "closed": "2026-11-20T12:24:00+05:30",
       "exit_price": 48.9,
       "evidence": "completed_1m_candle"
+    },
+    {
+      "id": "52151c41f5754d",
+      "day": "2026-11-23",
+      "strategy": "S2",
+      "key": "NSE_FO|64489",
+      "strike": 25800.0,
+      "side": "CE",
+      "expiry": "2026-11-23",
+      "entry": 164.25,
+      "entered": "2026-11-23T09:16:27.928187+05:30",
+      "target": 188.89,
+      "stop": 147.83,
+      "direction": "UP",
+      "status": "STOP",
+      "shadow": false,
+      "features_snapshot": {
+        "key": "NSE_FO|64489",
+        "strike": 25800.0,
+        "side": "CE",
+        "expiry": "2026-11-23",
+        "market": {
+          "ltp": 164.25,
+          "volume": 5486845,
+          "oi": 5010135.0,
+          "close_price": 102.55,
+          "bid_price": 162.5,
+          "bid_qty": 130,
+          "ask_price": 162.95,
+          "ask_qty": 715,
+          "prev_oi": 6271980.0
+        },
+        "greeks": {
+          "vega": 1.7417,
+          "theta": -81.3139,
+          "gamma": 0.0015,
+          "delta": 0.8315,
+          "iv": 24.23,
+          "pop": 46.29
+        },
+        "spot": 25937.2
+      },
+      "last": 137.25,
+      "last_seen": "2026-11-23T09:18:00+05:30",
+      "checked_until": "2026-11-23T09:17:00+05:30",
+      "entry_minute_excluded": true,
+      "previous_close": 102.55,
+      "opening": 177.0,
+      "closed": "2026-11-23T09:18:00+05:30",
+      "exit_price": 147.83,
+      "evidence": "completed_1m_candle",
+      "gross_pct": -9.996955859969548,
+      "net_estimated_pct": -10.496955859969548
     }
   ],
   "outbox": [
@@ -3201,6 +3286,26 @@
       "id": "online-2026-11-21",
       "text": "Nifty research bot ONLINE | 2026-11-21\nExpiry 2026-11-23; previous-close ATM 25800.\nS1 Kronos + learning; S2 opening gap; S3 relative fair value.\nPaper alerts only. Daily report around 16:15 IST.",
       "sent": true
+    },
+    {
+      "id": "report-2026-11-21-0",
+      "text": "MY DAILY LEARNING REVIEW | 2026-11-21\nRecorded market session: 2\n\nWHAT I DID WELL\n- I have no verified target/value hit to call a success today.\n\nWHAT WENT WRONG\n- No verified stop hit today. This alone does not prove the decisions were good.\n\nWHAT THE RECORD IS TEACHING ME\n- No resolved S1 examples yet. I will record the next session rather than invent a lesson.\n- I updated my small scoring model from 0 newly resolved alert(s). Kronos was not changed.\n\nWHAT I WILL TRY TOMORROW\n- Keep the entry rules while I collect more evidence. No extra filter is justified yet.\n- I will keep reviewing the opening and value-watch results. Their original rules stay fixed.\n\nMY 15\u201330 SESSION RECORD\n- 0 trial(s) recorded. Every keep/pause decision and daily plan is saved.\n- Next checkpoint: session 15. Calendar days without observed market data do not count.\nThese are observed patterns, not proven reasons. No forced new rule after a single win or loss.\n\nDETAILED RESULTS\nNIFTY PAPER REPORT | 2026-11-21 | 16:15 IST\nValues/returns are research estimates, not executed trades.\n\nS1: 0 alerts\n\nS2: 0 alerts\n\nS3: 0 alerts\n\nSilently followed skipped S1 setups: 0; targets missed 0; stops avoided 0.\n\nCounter trades (opposite option, shadow): 0\n\nLearning: 0 resolved S1 samples. Warm-up; no learned filtering yet.\nS2 rules and S3 model are never rewritten by the learner. Losses can recur.\n",
+      "sent": true
+    },
+    {
+      "id": "online-2026-11-23",
+      "text": "Nifty research bot ONLINE | 2026-11-23\nExpiry 2026-11-23; previous-close ATM 25800.\nS1 Kronos + learning; S2 opening gap; S3 relative fair value.\nPaper alerts only. Daily report around 16:15 IST.",
+      "sent": true
+    },
+    {
+      "id": "entry-52151c41f5754d",
+      "text": "S2 PAPER RESEARCH | NIFTY 25800 CE\nExpiry 2026-11-23 | 09:16:27 IST\nLTP/reference \u20b9164.25\nPrevious close \u20b9102.55; open \u20b9177.00\nTarget \u20b9188.89 (+15%) | SL \u20b9147.83 (-10%)\nNo trailing SL.\nID 52151c41f5754d",
+      "sent": true
+    },
+    {
+      "id": "exit-52151c41f5754d",
+      "text": "S2 | NIFTY 25800 CE\nSTOP: \u20b9147.83\nEvidence: completed_1m_candle\nID 52151c41f5754d | 09:18 IST",
+      "sent": true
     }
   ],
   "learner": {
@@ -3277,6 +3382,41 @@
           "S3": {
             "alerts": 26,
             "target": 26,
+            "stop": 0,
+            "unresolved": 0
+          }
+        },
+        "patterns": [],
+        "actions": [],
+        "tomorrow_policy": null,
+        "evaluated_rule": null,
+        "tomorrow_policies": [],
+        "evaluated_rules": [],
+        "active_rules": [],
+        "active_forward": null,
+        "new_training_cases": 0,
+        "milestone": false
+      },
+      "2026-11-21": {
+        "date": "2026-11-21",
+        "session_number": 2,
+        "market_session": false,
+        "today_summary": {
+          "S1": {
+            "alerts": 0,
+            "target": 0,
+            "stop": 0,
+            "unresolved": 0
+          },
+          "S2": {
+            "alerts": 0,
+            "target": 0,
+            "stop": 0,
+            "unresolved": 0
+          },
+          "S3": {
+            "alerts": 0,
+            "target": 0,
             "stop": 0,
             "unresolved": 0
           }

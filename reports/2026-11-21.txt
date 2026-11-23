@@ -1,0 +1,15 @@
+NIFTY PAPER REPORT | 2026-11-21 | 16:15 IST
+Values/returns are research estimates, not executed trades.
+
+S1: 0 alerts
+
+S2: 0 alerts
+
+S3: 0 alerts
+
+Silently followed skipped S1 setups: 0; targets missed 0; stops avoided 0.
+
+Counter trades (opposite option, shadow): 0
+
+Learning: 0 resolved S1 samples. Warm-up; no learned filtering yet.
+S2 rules and S3 model are never rewritten by the learner. Losses can recur.
