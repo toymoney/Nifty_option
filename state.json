@@ -4133,6 +4133,63 @@
       "closed": "2026-11-23T09:37:00+05:30",
       "exit_price": null,
       "evidence": "completed_1m_candle"
+    },
+    {
+      "id": "0b25afbb76ea07",
+      "day": "2026-11-23",
+      "strategy": "S3",
+      "key": "NSE_FO|64469",
+      "strike": 25400.0,
+      "side": "PE",
+      "expiry": "2026-11-23",
+      "entry": 16.8,
+      "entered": "2026-11-23T10:17:10.560509+05:30",
+      "target": 20.5,
+      "stop": null,
+      "direction": "UP",
+      "status": "OPEN",
+      "shadow": false,
+      "features_snapshot": {
+        "key": "NSE_FO|64469",
+        "strike": 25400.0,
+        "side": "PE",
+        "expiry": "2026-11-23",
+        "market": {
+          "ltp": 16.8,
+          "volume": 158270320,
+          "oi": 15105480.0,
+          "close_price": 22.55,
+          "bid_price": 16.75,
+          "bid_qty": 975,
+          "ask_price": 16.8,
+          "ask_qty": 65,
+          "prev_oi": 9871550.0
+        },
+        "greeks": {
+          "vega": 1.4214,
+          "theta": -119.0398,
+          "gamma": 0.001,
+          "delta": -0.1442,
+          "iv": 36.44,
+          "pop": 12.97
+        },
+        "spot": 25619.4
+      },
+      "last": 16.8,
+      "last_seen": "2026-11-23T10:19:43.012514+05:30",
+      "checked_until": "2026-11-23T10:18:00+05:30",
+      "entry_minute_excluded": true,
+      "gap_pct": 18.043536833479788,
+      "peer_iv": 36.77796684139646,
+      "time_to_expiry_years": 0.0005951750219114663,
+      "greek_scenarios": {
+        "spot_up_1pct_approx": -4.125491982,
+        "spot_down_1pct_approx": 69.760857618,
+        "iv_up_1_percentage_point": 1.4214,
+        "provider_theta": -119.0398
+      },
+      "fair_model": "leave_one_out_peer_IV_Black_Scholes",
+      "severity": "15\u201325%"
     }
   ],
   "outbox": [
@@ -4799,6 +4856,11 @@
     {
       "id": "exit-b6acbfa524060d",
       "text": "S1 | NIFTY 25600 CE\nTARGET: \u20b9118.91\nEvidence: completed_1m_candle\nID b6acbfa524060d | 09:37 IST",
+      "sent": true
+    },
+    {
+      "id": "entry-0b25afbb76ea07",
+      "text": "S3 PAPER RESEARCH | NIFTY 25400 PE\nExpiry 2026-11-23 | 10:17:10 IST\nLTP/reference \u20b916.80\nFixed model value \u20b920.50; direction UP\nGap 18.0%; peer IV 36.78%\nNo stop: valuation watch only.\nIV 36.44% | \u0394 -0.144 | \u0393 0.00100\n\u0398 -119.04 | Vega 1.42 | OI 1.51055e+07\nExpiry in 0.22 days\nID 0b25afbb76ea07",
       "sent": true
     }
   ],
