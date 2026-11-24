@@ -479,7 +479,9 @@
       "opening_contracts": {
         "CE": "NSE_FO|47804",
         "PE": "NSE_FO|47805"
-      }
+      },
+      "new_training_cases": 0,
+      "reported": true
     }
   },
   "trades": [
@@ -5216,6 +5218,11 @@
       "id": "online-2026-11-24",
       "text": "Nifty research bot ONLINE | 2026-11-24\nExpiry 2026-12-01; previous-close ATM 25350.\nS1 Kronos + learning; S2 opening gap; S3 relative fair value.\nPaper alerts only. Daily report around 16:15 IST.",
       "sent": true
+    },
+    {
+      "id": "report-2026-11-24-0",
+      "text": "MY DAILY LEARNING REVIEW | 2026-11-24\nRecorded market session: 3\n\nWHAT I DID WELL\n- I have no verified target/value hit to call a success today.\n\nWHAT WENT WRONG\n- No verified stop hit today. This alone does not prove the decisions were good.\n\nWHAT THE RECORD IS TEACHING ME\n- Encouraging: buying calls: 1 targets and 0 stops across 1 sessions. Average paper result after assumed costs: +14.5% of entry premium. An observation only; not enough comparative evidence for a new rule.\n- I updated my small scoring model from 0 newly resolved alert(s). Kronos was not changed.\n\nWHAT I WILL TRY TOMORROW\n- Keep the entry rules while I collect more evidence. No extra filter is justified yet.\n- I will keep reviewing the opening and value-watch results. Their original rules stay fixed.\n\nMY 15\u201330 SESSION RECORD\n- 0 trial(s) recorded. Every keep/pause decision and daily plan is saved.\n- Next checkpoint: session 15. Calendar days without observed market data do not count.\nThese are observed patterns, not proven reasons. No forced new rule after a single win or loss.\n\nDETAILED RESULTS\nNIFTY PAPER REPORT | 2026-11-24 | 19:32 IST\nValues/returns are research estimates, not executed trades.\n\nS1: 0 alerts\n\nS2: 0 alerts\n\nS3: 0 alerts\n\nSilently followed skipped S1 setups: 0; targets missed 0; stops avoided 0.\n\nCounter trades (opposite option, shadow): 0\n\nLearning: 1 resolved S1 samples. Warm-up; no learned filtering yet.\nForward Brier score: 0.2500 (lower is better; uncalibrated small sample).\nObserved CE/high_iv: 1/1 targets. Association, not proven cause.\nS2 rules and S3 model are never rewritten by the learner. Losses can recur.\nfreshness: No recent completed Nifty candle: holiday, outage or stale feed; entries paused.\n",
+      "sent": true
     }
   ],
   "learner": {
@@ -5500,6 +5507,162 @@
         "active_rules": [],
         "active_forward": null,
         "new_training_cases": 1,
+        "milestone": false
+      },
+      "2026-11-24": {
+        "date": "2026-11-24",
+        "session_number": 3,
+        "market_session": false,
+        "today_summary": {
+          "S1": {
+            "alerts": 0,
+            "target": 0,
+            "stop": 0,
+            "unresolved": 0
+          },
+          "S2": {
+            "alerts": 0,
+            "target": 0,
+            "stop": 0,
+            "unresolved": 0
+          },
+          "S3": {
+            "alerts": 0,
+            "target": 0,
+            "stop": 0,
+            "unresolved": 0
+          }
+        },
+        "patterns": [
+          {
+            "tag": "side:CE",
+            "label": "buying calls",
+            "stats": {
+              "cases": 1,
+              "days": 1,
+              "wins": 1,
+              "losses": 0,
+              "mean_net_pct": 14.499999999999991
+            },
+            "comparison": {
+              "cases": 0,
+              "days": 0,
+              "wins": 0,
+              "losses": 0,
+              "mean_net_pct": null
+            },
+            "difference_pct": null,
+            "candidate_action": null
+          },
+          {
+            "tag": "iv:high",
+            "label": "options with IV of 25% or more",
+            "stats": {
+              "cases": 1,
+              "days": 1,
+              "wins": 1,
+              "losses": 0,
+              "mean_net_pct": 14.499999999999991
+            },
+            "comparison": {
+              "cases": 0,
+              "days": 0,
+              "wins": 0,
+              "losses": 0,
+              "mean_net_pct": null
+            },
+            "difference_pct": null,
+            "candidate_action": null
+          },
+          {
+            "tag": "spread:tight",
+            "label": "options with a bid/ask gap of 1.5% or less",
+            "stats": {
+              "cases": 1,
+              "days": 1,
+              "wins": 1,
+              "losses": 0,
+              "mean_net_pct": 14.499999999999991
+            },
+            "comparison": {
+              "cases": 0,
+              "days": 0,
+              "wins": 0,
+              "losses": 0,
+              "mean_net_pct": null
+            },
+            "difference_pct": null,
+            "candidate_action": null
+          },
+          {
+            "tag": "forecast:small",
+            "label": "Kronos moves below 0.20%",
+            "stats": {
+              "cases": 1,
+              "days": 1,
+              "wins": 1,
+              "losses": 0,
+              "mean_net_pct": 14.499999999999991
+            },
+            "comparison": {
+              "cases": 0,
+              "days": 0,
+              "wins": 0,
+              "losses": 0,
+              "mean_net_pct": null
+            },
+            "difference_pct": null,
+            "candidate_action": null
+          },
+          {
+            "tag": "time:morning",
+            "label": "entries before noon",
+            "stats": {
+              "cases": 1,
+              "days": 1,
+              "wins": 1,
+              "losses": 0,
+              "mean_net_pct": 14.499999999999991
+            },
+            "comparison": {
+              "cases": 0,
+              "days": 0,
+              "wins": 0,
+              "losses": 0,
+              "mean_net_pct": null
+            },
+            "difference_pct": null,
+            "candidate_action": null
+          },
+          {
+            "tag": "oi:rising",
+            "label": "open interest rising by at least 10%",
+            "stats": {
+              "cases": 1,
+              "days": 1,
+              "wins": 1,
+              "losses": 0,
+              "mean_net_pct": 14.499999999999991
+            },
+            "comparison": {
+              "cases": 0,
+              "days": 0,
+              "wins": 0,
+              "losses": 0,
+              "mean_net_pct": null
+            },
+            "difference_pct": null,
+            "candidate_action": null
+          }
+        ],
+        "actions": [],
+        "tomorrow_policy": null,
+        "evaluated_rule": null,
+        "tomorrow_policies": [],
+        "evaluated_rules": [],
+        "active_rules": [],
+        "active_forward": null,
+        "new_training_cases": 0,
         "milestone": false
       }
     },

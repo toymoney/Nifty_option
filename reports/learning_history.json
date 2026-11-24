@@ -261,6 +261,162 @@
       "active_forward": null,
       "new_training_cases": 1,
       "milestone": false
+    },
+    "2026-11-24": {
+      "date": "2026-11-24",
+      "session_number": 3,
+      "market_session": false,
+      "today_summary": {
+        "S1": {
+          "alerts": 0,
+          "target": 0,
+          "stop": 0,
+          "unresolved": 0
+        },
+        "S2": {
+          "alerts": 0,
+          "target": 0,
+          "stop": 0,
+          "unresolved": 0
+        },
+        "S3": {
+          "alerts": 0,
+          "target": 0,
+          "stop": 0,
+          "unresolved": 0
+        }
+      },
+      "patterns": [
+        {
+          "tag": "side:CE",
+          "label": "buying calls",
+          "stats": {
+            "cases": 1,
+            "days": 1,
+            "wins": 1,
+            "losses": 0,
+            "mean_net_pct": 14.499999999999991
+          },
+          "comparison": {
+            "cases": 0,
+            "days": 0,
+            "wins": 0,
+            "losses": 0,
+            "mean_net_pct": null
+          },
+          "difference_pct": null,
+          "candidate_action": null
+        },
+        {
+          "tag": "iv:high",
+          "label": "options with IV of 25% or more",
+          "stats": {
+            "cases": 1,
+            "days": 1,
+            "wins": 1,
+            "losses": 0,
+            "mean_net_pct": 14.499999999999991
+          },
+          "comparison": {
+            "cases": 0,
+            "days": 0,
+            "wins": 0,
+            "losses": 0,
+            "mean_net_pct": null
+          },
+          "difference_pct": null,
+          "candidate_action": null
+        },
+        {
+          "tag": "spread:tight",
+          "label": "options with a bid/ask gap of 1.5% or less",
+          "stats": {
+            "cases": 1,
+            "days": 1,
+            "wins": 1,
+            "losses": 0,
+            "mean_net_pct": 14.499999999999991
+          },
+          "comparison": {
+            "cases": 0,
+            "days": 0,
+            "wins": 0,
+            "losses": 0,
+            "mean_net_pct": null
+          },
+          "difference_pct": null,
+          "candidate_action": null
+        },
+        {
+          "tag": "forecast:small",
+          "label": "Kronos moves below 0.20%",
+          "stats": {
+            "cases": 1,
+            "days": 1,
+            "wins": 1,
+            "losses": 0,
+            "mean_net_pct": 14.499999999999991
+          },
+          "comparison": {
+            "cases": 0,
+            "days": 0,
+            "wins": 0,
+            "losses": 0,
+            "mean_net_pct": null
+          },
+          "difference_pct": null,
+          "candidate_action": null
+        },
+        {
+          "tag": "time:morning",
+          "label": "entries before noon",
+          "stats": {
+            "cases": 1,
+            "days": 1,
+            "wins": 1,
+            "losses": 0,
+            "mean_net_pct": 14.499999999999991
+          },
+          "comparison": {
+            "cases": 0,
+            "days": 0,
+            "wins": 0,
+            "losses": 0,
+            "mean_net_pct": null
+          },
+          "difference_pct": null,
+          "candidate_action": null
+        },
+        {
+          "tag": "oi:rising",
+          "label": "open interest rising by at least 10%",
+          "stats": {
+            "cases": 1,
+            "days": 1,
+            "wins": 1,
+            "losses": 0,
+            "mean_net_pct": 14.499999999999991
+          },
+          "comparison": {
+            "cases": 0,
+            "days": 0,
+            "wins": 0,
+            "losses": 0,
+            "mean_net_pct": null
+          },
+          "difference_pct": null,
+          "candidate_action": null
+        }
+      ],
+      "actions": [],
+      "tomorrow_policy": null,
+      "evaluated_rule": null,
+      "tomorrow_policies": [],
+      "evaluated_rules": [],
+      "active_rules": [],
+      "active_forward": null,
+      "new_training_cases": 0,
+      "milestone": false
     }
   },
   "rules": {},

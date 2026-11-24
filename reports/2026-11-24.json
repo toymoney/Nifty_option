@@ -1,0 +1,38 @@
+{
+  "day": {
+    "date": "2026-11-24",
+    "diagnostics": {
+      "freshness": "No recent completed Nifty candle: holiday, outage or stale feed; entries paused."
+    },
+    "expiry": "2026-12-01",
+    "previous_date": "2026-11-23",
+    "previous_spot": 25349.65,
+    "previous_atm": 25350,
+    "opening_contracts": {
+      "CE": "NSE_FO|47804",
+      "PE": "NSE_FO|47805"
+    },
+    "new_training_cases": 0
+  },
+  "trades": [],
+  "learner": {
+    "weights": [
+      0.015,
+      0.0022465726093631178,
+      0.011937,
+      0.0074399999999999996,
+      0.0225,
+      0.03,
+      0.0003978,
+      0.015,
+      0.0005077369439071691,
+      0.0008
+    ],
+    "trained_ids": [
+      "b6acbfa524060d"
+    ],
+    "brier": [
+      0.25
+    ]
+  }
+}
