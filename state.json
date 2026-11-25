@@ -485,7 +485,9 @@
     },
     "2026-11-25": {
       "date": "2026-11-25",
-      "diagnostics": {},
+      "diagnostics": {
+        "Kronos": "Native pretrained Kronos-mini forecast successful; no base-model fine-tuning."
+      },
       "expiry": "2026-12-01",
       "previous_date": "2026-11-23",
       "previous_spot": 25349.65,
@@ -511,7 +513,18 @@
           "key": "NSE_FO|47805"
         }
       },
-      "opening_done": true
+      "opening_done": true,
+      "forecast_slot": "20261125091",
+      "forecasts": [
+        {
+          "at": "2026-11-25T09:35:57.167889+05:30",
+          "return_15m": 0.0002786877455942527,
+          "reference_close": 25779.3,
+          "reference_bar": "2026-11-25T09:30:00+05:30",
+          "target_bar": "2026-11-25T09:45:00+05:30",
+          "predicted_close": 25786.484375
+        }
+      ]
     }
   },
   "trades": [
@@ -4568,9 +4581,9 @@
         },
         "spot": 25739.15
       },
-      "last": 526.8,
-      "last_seen": "2026-11-25T09:32:51.463849+05:30",
-      "checked_until": "2026-11-25T09:31:00+05:30",
+      "last": 527.85,
+      "last_seen": "2026-11-25T09:37:59.010196+05:30",
+      "checked_until": "2026-11-25T09:36:00+05:30",
       "entry_minute_excluded": true,
       "previous_close": 263.55,
       "opening": 389.0
