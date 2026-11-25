@@ -493,7 +493,25 @@
       "opening_contracts": {
         "CE": "NSE_FO|47804",
         "PE": "NSE_FO|47805"
-      }
+      },
+      "market_seen": true,
+      "opening_checked": [
+        "CE",
+        "PE"
+      ],
+      "opening_reference": {
+        "CE": {
+          "close": 263.55,
+          "open": 389.0,
+          "key": "NSE_FO|47804"
+        },
+        "PE": {
+          "close": 242.9,
+          "open": 135.0,
+          "key": "NSE_FO|47805"
+        }
+      },
+      "opening_done": true
     }
   },
   "trades": [
@@ -4508,6 +4526,54 @@
       "closed": "2026-11-23T14:47:00+05:30",
       "exit_price": 70.51,
       "evidence": "completed_1m_candle"
+    },
+    {
+      "id": "793cee510a841d",
+      "day": "2026-11-25",
+      "strategy": "S2",
+      "key": "NSE_FO|47804",
+      "strike": 25350.0,
+      "side": "CE",
+      "expiry": "2026-12-01",
+      "entry": 477.15,
+      "entered": "2026-11-25T09:16:24.799752+05:30",
+      "target": 548.72,
+      "stop": 429.44,
+      "direction": "UP",
+      "status": "OPEN",
+      "shadow": false,
+      "features_snapshot": {
+        "key": "NSE_FO|47804",
+        "strike": 25350.0,
+        "side": "CE",
+        "expiry": "2026-12-01",
+        "market": {
+          "ltp": 477.15,
+          "volume": 332150,
+          "oi": 493935.0,
+          "close_price": 263.55,
+          "bid_price": 476.3,
+          "bid_qty": 130,
+          "ask_price": 477.7,
+          "ask_qty": 65,
+          "prev_oi": 595985.0
+        },
+        "greeks": {
+          "vega": 9.76,
+          "theta": -12.2408,
+          "gamma": 0.0005,
+          "delta": 0.7887,
+          "iv": 15.7,
+          "pop": 44.78
+        },
+        "spot": 25739.15
+      },
+      "last": 476.35,
+      "last_seen": "2026-11-25T09:17:28.848562+05:30",
+      "checked_until": "2026-11-25T09:16:24.799752+05:30",
+      "entry_minute_excluded": true,
+      "previous_close": 263.55,
+      "opening": 389.0
     }
   ],
   "outbox": [
@@ -5239,6 +5305,11 @@
     {
       "id": "online-2026-11-25",
       "text": "Nifty research bot ONLINE | 2026-11-25\nExpiry 2026-12-01; previous-close ATM 25350.\nS1 Kronos + learning; S2 opening gap; S3 relative fair value.\nPaper alerts only. Daily report around 16:15 IST.",
+      "sent": true
+    },
+    {
+      "id": "entry-793cee510a841d",
+      "text": "S2 PAPER RESEARCH | NIFTY 25350 CE\nExpiry 2026-12-01 | 09:16:24 IST\nLTP/reference \u20b9477.15\nPrevious close \u20b9263.55; open \u20b9389.00\nTarget \u20b9548.72 (+15%) | SL \u20b9429.44 (-10%)\nNo trailing SL.\nID 793cee510a841d",
       "sent": true
     }
   ],
