@@ -522,7 +522,10 @@
           "reference_close": 25779.3,
           "reference_bar": "2026-11-25T09:30:00+05:30",
           "target_bar": "2026-11-25T09:45:00+05:30",
-          "predicted_close": 25786.484375
+          "predicted_close": 25786.484375,
+          "actual_return": -0.001437199613643525,
+          "absolute_error_pct": 0.17158873592377777,
+          "direction_correct": false
         },
         {
           "at": "2026-11-25T10:00:58.432395+05:30",
@@ -530,7 +533,10 @@
           "reference_close": 25773.1,
           "reference_bar": "2026-11-25T09:55:00+05:30",
           "target_bar": "2026-11-25T10:10:00+05:30",
-          "predicted_close": 25806.173828125
+          "predicted_close": 25806.173828125,
+          "actual_return": -0.00013968051961144035,
+          "absolute_error_pct": 0.14229498246232097,
+          "direction_correct": false
         },
         {
           "at": "2026-11-25T10:40:57.209300+05:30",
@@ -538,7 +544,10 @@
           "reference_close": 25839.15,
           "reference_bar": "2026-11-25T10:35:00+05:30",
           "target_bar": "2026-11-25T10:50:00+05:30",
-          "predicted_close": 25845.689453125
+          "predicted_close": 25845.689453125,
+          "actual_return": 0.0005398784402737,
+          "absolute_error_pct": 0.028679530383146634,
+          "direction_correct": true
         },
         {
           "at": "2026-11-25T11:00:42.289497+05:30",
@@ -546,7 +555,10 @@
           "reference_close": 25871.7,
           "reference_bar": "2026-11-25T10:55:00+05:30",
           "target_bar": "2026-11-25T11:10:00+05:30",
-          "predicted_close": 25866.849609375
+          "predicted_close": 25866.849609375,
+          "actual_return": 0.001602136697627099,
+          "absolute_error_pct": 0.17896153180888552,
+          "direction_correct": false
         },
         {
           "at": "2026-11-25T11:30:35.209806+05:30",
@@ -554,7 +566,10 @@
           "reference_close": 25918.55,
           "reference_bar": "2026-11-25T11:25:00+05:30",
           "target_bar": "2026-11-25T11:40:00+05:30",
-          "predicted_close": 25908.828125
+          "predicted_close": 25908.828125,
+          "actual_return": 0.0011825507213945041,
+          "absolute_error_pct": 0.15576440425871807,
+          "direction_correct": false
         },
         {
           "at": "2026-11-25T12:01:01.375162+05:30",
@@ -562,7 +577,10 @@
           "reference_close": 25905.7,
           "reference_bar": "2026-11-25T11:55:00+05:30",
           "target_bar": "2026-11-25T12:10:00+05:30",
-          "predicted_close": 25921.611328125
+          "predicted_close": 25921.611328125,
+          "actual_return": -0.0003184627321399791,
+          "absolute_error_pct": 0.09326645535536748,
+          "direction_correct": false
         },
         {
           "at": "2026-11-25T12:30:52.572782+05:30",
@@ -570,7 +588,10 @@
           "reference_close": 25883.15,
           "reference_bar": "2026-11-25T12:25:00+05:30",
           "target_bar": "2026-11-25T12:40:00+05:30",
-          "predicted_close": 25902.048828125
+          "predicted_close": 25902.048828125,
+          "actual_return": -0.00428657253850484,
+          "absolute_error_pct": 0.5016732048649386,
+          "direction_correct": false
         },
         {
           "at": "2026-11-25T13:00:45.844015+05:30",
@@ -578,7 +599,10 @@
           "reference_close": 25710.7,
           "reference_bar": "2026-11-25T12:55:00+05:30",
           "target_bar": "2026-11-25T13:10:00+05:30",
-          "predicted_close": 25732.126953125
+          "predicted_close": 25732.126953125,
+          "actual_return": -0.002246146545990535,
+          "absolute_error_pct": 0.30795331564289485,
+          "direction_correct": false
         },
         {
           "at": "2026-11-25T13:30:39.718760+05:30",
@@ -586,7 +610,10 @@
           "reference_close": 25698.6,
           "reference_bar": "2026-11-25T13:25:00+05:30",
           "target_bar": "2026-11-25T13:40:00+05:30",
-          "predicted_close": 25695.37890625
+          "predicted_close": 25695.37890625,
+          "actual_return": 0.0011809981866717223,
+          "absolute_error_pct": 0.13063394017572838,
+          "direction_correct": false
         },
         {
           "at": "2026-11-25T14:00:32.115047+05:30",
@@ -594,9 +621,14 @@
           "reference_close": 25700.05,
           "reference_bar": "2026-11-25T13:55:00+05:30",
           "target_bar": "2026-11-25T14:10:00+05:30",
-          "predicted_close": 25720.45703125
+          "predicted_close": 25720.45703125,
+          "actual_return": 0.0023307347651075894,
+          "absolute_error_pct": 0.1536688401384545,
+          "direction_correct": true
         }
-      ]
+      ],
+      "new_training_cases": 1,
+      "reported": true
     }
   },
   "trades": [
@@ -5551,26 +5583,33 @@
       "id": "exit-15c8a6e0e322cc",
       "text": "S1 | NIFTY 25750 CE\nTARGET: \u20b9291.93\nEvidence: completed_1m_candle\nID 15c8a6e0e322cc | 10:40 IST",
       "sent": true
+    },
+    {
+      "id": "report-2026-11-25-0",
+      "text": "MY DAILY LEARNING REVIEW | 2026-11-25\nRecorded market session: 4\n\nWHAT I DID WELL\n- S2: 25350 CE reached the target.\n- S1: 25750 CE reached the target.\n\nWHAT WENT WRONG\n- No verified stop hit today. This alone does not prove the decisions were good.\n\nWHAT THE RECORD IS TEACHING ME\n- Encouraging: options with IV below 25%: 1 targets and 0 stops across 1 sessions. Average paper result after assumed costs: +14.5% of entry premium. An observation only; not enough comparative evidence for a new rule.\n- I updated my small scoring model from 1 newly resolved alert(s). Kronos was not changed.\n\nWHAT I WILL TRY TOMORROW\n- Keep the entry rules while I collect more evidence. No extra filter is justified yet.\n- I will keep reviewing the opening and value-watch results. Their original rules stay fixed.\n\nMY 15\u201330 SESSION RECORD\n- 0 trial(s) recorded. Every keep/pause decision and daily plan is saved.\n- Next checkpoint: session 15. Calendar days without observed market data do not count.\nThese are observed patterns, not proven reasons. No forced new rule after a single win or loss.\n\nDETAILED RESULTS\nNIFTY PAPER REPORT | 2026-11-25 | 16:15 IST\nValues/returns are research estimates, not executed trades.\n\nS1: 1 alerts\n25750 CE: TARGET; entry 253.85, last 296.70, net estimate +14.50%\n\nS2: 1 alerts\n25350 CE: TARGET; entry 477.15, last 552.40, net estimate +14.50%\n\nS3: 0 alerts\n\nSilently followed skipped S1 setups: 0; targets missed 0; stops avoided 0.\n\nKronos underlying forecasts: 2/10 correct direction; MAE 0.186 percentage points.\n\nCounter trades (opposite option, shadow): 1\n25750 PE: STOP\n\nLearning: 2 resolved S1 samples. Warm-up; no learned filtering yet.\nForward Brier score: 0.2426 (lower is better; uncalibrated small sample).\nObserved CE/normal_iv: 1/1 targets. Association, not proven cause.\nObserved CE/high_iv: 1/1 targets. Association, not proven cause.\nS2 rules and S3 model are never rewritten by the learner. Losses can recur.\nKronos: Native pretrained Kronos-mini forecast successful; no base-model fine-tuning.\n",
+      "sent": true
     }
   ],
   "learner": {
     "weights": [
-      0.015,
-      0.0022465726093631178,
-      0.011937,
-      0.0074399999999999996,
-      0.0225,
-      0.03,
-      0.0003978,
-      0.015,
-      0.0005077369439071691,
-      0.0008
+      0.029550012115894107,
+      0.0041137213528911875,
+      0.017011843076023863,
+      0.015222818985791756,
+      0.03268464848112587,
+      0.032727064288874175,
+      0.0023463132002499595,
+      0.029550012115894107,
+      0.0005363812787003634,
+      0.0025460314539072926
     ],
     "trained_ids": [
-      "b6acbfa524060d"
+      "b6acbfa524060d",
+      "15c8a6e0e322cc"
     ],
     "brier": [
-      0.25
+      0.25,
+      0.2352399419845218
     ]
   },
   "journal": {
@@ -5991,6 +6030,182 @@
         "active_rules": [],
         "active_forward": null,
         "new_training_cases": 0,
+        "milestone": false
+      },
+      "2026-11-25": {
+        "date": "2026-11-25",
+        "session_number": 4,
+        "market_session": true,
+        "today_summary": {
+          "S1": {
+            "alerts": 1,
+            "target": 1,
+            "stop": 0,
+            "unresolved": 0
+          },
+          "S2": {
+            "alerts": 1,
+            "target": 1,
+            "stop": 0,
+            "unresolved": 0
+          },
+          "S3": {
+            "alerts": 0,
+            "target": 0,
+            "stop": 0,
+            "unresolved": 0
+          }
+        },
+        "patterns": [
+          {
+            "tag": "side:CE",
+            "label": "buying calls",
+            "stats": {
+              "cases": 2,
+              "days": 2,
+              "wins": 2,
+              "losses": 0,
+              "mean_net_pct": 14.500492416781563
+            },
+            "comparison": {
+              "cases": 0,
+              "days": 0,
+              "wins": 0,
+              "losses": 0,
+              "mean_net_pct": null
+            },
+            "difference_pct": null,
+            "candidate_action": null
+          },
+          {
+            "tag": "iv:normal",
+            "label": "options with IV below 25%",
+            "stats": {
+              "cases": 1,
+              "days": 1,
+              "wins": 1,
+              "losses": 0,
+              "mean_net_pct": 14.500984833563136
+            },
+            "comparison": {
+              "cases": 1,
+              "days": 1,
+              "wins": 1,
+              "losses": 0,
+              "mean_net_pct": 14.499999999999991
+            },
+            "difference_pct": 0.0009848335631446048,
+            "candidate_action": null
+          },
+          {
+            "tag": "iv:high",
+            "label": "options with IV of 25% or more",
+            "stats": {
+              "cases": 1,
+              "days": 1,
+              "wins": 1,
+              "losses": 0,
+              "mean_net_pct": 14.499999999999991
+            },
+            "comparison": {
+              "cases": 1,
+              "days": 1,
+              "wins": 1,
+              "losses": 0,
+              "mean_net_pct": 14.500984833563136
+            },
+            "difference_pct": -0.0009848335631446048,
+            "candidate_action": null
+          },
+          {
+            "tag": "spread:tight",
+            "label": "options with a bid/ask gap of 1.5% or less",
+            "stats": {
+              "cases": 2,
+              "days": 2,
+              "wins": 2,
+              "losses": 0,
+              "mean_net_pct": 14.500492416781563
+            },
+            "comparison": {
+              "cases": 0,
+              "days": 0,
+              "wins": 0,
+              "losses": 0,
+              "mean_net_pct": null
+            },
+            "difference_pct": null,
+            "candidate_action": null
+          },
+          {
+            "tag": "forecast:small",
+            "label": "Kronos moves below 0.20%",
+            "stats": {
+              "cases": 2,
+              "days": 2,
+              "wins": 2,
+              "losses": 0,
+              "mean_net_pct": 14.500492416781563
+            },
+            "comparison": {
+              "cases": 0,
+              "days": 0,
+              "wins": 0,
+              "losses": 0,
+              "mean_net_pct": null
+            },
+            "difference_pct": null,
+            "candidate_action": null
+          },
+          {
+            "tag": "time:morning",
+            "label": "entries before noon",
+            "stats": {
+              "cases": 2,
+              "days": 2,
+              "wins": 2,
+              "losses": 0,
+              "mean_net_pct": 14.500492416781563
+            },
+            "comparison": {
+              "cases": 0,
+              "days": 0,
+              "wins": 0,
+              "losses": 0,
+              "mean_net_pct": null
+            },
+            "difference_pct": null,
+            "candidate_action": null
+          },
+          {
+            "tag": "oi:rising",
+            "label": "open interest rising by at least 10%",
+            "stats": {
+              "cases": 2,
+              "days": 2,
+              "wins": 2,
+              "losses": 0,
+              "mean_net_pct": 14.500492416781563
+            },
+            "comparison": {
+              "cases": 0,
+              "days": 0,
+              "wins": 0,
+              "losses": 0,
+              "mean_net_pct": null
+            },
+            "difference_pct": null,
+            "candidate_action": null
+          }
+        ],
+        "actions": [],
+        "tomorrow_policy": null,
+        "evaluated_rule": null,
+        "tomorrow_policies": [],
+        "evaluated_rules": [],
+        "active_rules": [],
+        "active_forward": null,
+        "new_training_cases": 1,
         "milestone": false
       }
     },
