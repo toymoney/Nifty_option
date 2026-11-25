@@ -514,7 +514,7 @@
         }
       },
       "opening_done": true,
-      "forecast_slot": "20261125100",
+      "forecast_slot": "20261125101",
       "forecasts": [
         {
           "at": "2026-11-25T09:35:57.167889+05:30",
@@ -531,6 +531,14 @@
           "reference_bar": "2026-11-25T09:55:00+05:30",
           "target_bar": "2026-11-25T10:10:00+05:30",
           "predicted_close": 25806.173828125
+        },
+        {
+          "at": "2026-11-25T10:40:57.209300+05:30",
+          "return_15m": 0.0002530831364422337,
+          "reference_close": 25839.15,
+          "reference_bar": "2026-11-25T10:35:00+05:30",
+          "target_bar": "2026-11-25T10:50:00+05:30",
+          "predicted_close": 25845.689453125
         }
       ]
     }
@@ -4614,7 +4622,7 @@
       "target": 291.93,
       "stop": 228.47,
       "direction": "UP",
-      "status": "OPEN",
+      "status": "TARGET",
       "shadow": false,
       "features_snapshot": {
         "key": "NSE_FO|47837",
@@ -4642,9 +4650,9 @@
         },
         "spot": 25756.3
       },
-      "last": 285.4,
-      "last_seen": "2026-11-25T10:39:24.156419+05:30",
-      "checked_until": "2026-11-25T10:38:00+05:30",
+      "last": 296.7,
+      "last_seen": "2026-11-25T10:40:00+05:30",
+      "checked_until": "2026-11-25T10:39:00+05:30",
       "entry_minute_excluded": true,
       "x": [
         1.0,
@@ -4675,7 +4683,12 @@
       "journal_changed": false,
       "journal_reason": "usual setup rules",
       "base_allowed": true,
-      "journal_role": "main"
+      "journal_role": "main",
+      "closed": "2026-11-25T10:40:00+05:30",
+      "exit_price": 291.93,
+      "evidence": "completed_1m_candle",
+      "gross_pct": 15.000984833563136,
+      "net_estimated_pct": 14.500984833563136
     },
     {
       "id": "bdae265e8429ed",
@@ -5476,6 +5489,11 @@
     {
       "id": "exit-793cee510a841d",
       "text": "S2 | NIFTY 25350 CE\nTARGET: \u20b9548.72\nEvidence: completed_1m_candle\nID 793cee510a841d | 10:20 IST",
+      "sent": true
+    },
+    {
+      "id": "exit-15c8a6e0e322cc",
+      "text": "S1 | NIFTY 25750 CE\nTARGET: \u20b9291.93\nEvidence: completed_1m_candle\nID 15c8a6e0e322cc | 10:40 IST",
       "sent": true
     }
   ],
