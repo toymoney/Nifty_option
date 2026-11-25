@@ -4581,9 +4581,9 @@
         },
         "spot": 25739.15
       },
-      "last": 527.85,
-      "last_seen": "2026-11-25T09:37:59.010196+05:30",
-      "checked_until": "2026-11-25T09:36:00+05:30",
+      "last": 508.15,
+      "last_seen": "2026-11-25T09:43:05.862707+05:30",
+      "checked_until": "2026-11-25T09:42:00+05:30",
       "entry_minute_excluded": true,
       "previous_close": 263.55,
       "opening": 389.0
