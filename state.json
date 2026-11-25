@@ -4589,9 +4589,9 @@
         },
         "spot": 25739.15
       },
-      "last": 518.1,
-      "last_seen": "2026-11-25T10:03:32.907999+05:30",
-      "checked_until": "2026-11-25T10:02:00+05:30",
+      "last": 496.2,
+      "last_seen": "2026-11-25T10:08:40.671968+05:30",
+      "checked_until": "2026-11-25T10:07:00+05:30",
       "entry_minute_excluded": true,
       "previous_close": 263.55,
       "opening": 389.0
@@ -4637,9 +4637,9 @@
         },
         "spot": 25756.3
       },
-      "last": 251.35,
-      "last_seen": "2026-11-25T10:03:32.907999+05:30",
-      "checked_until": "2026-11-25T10:01:00+05:30",
+      "last": 240.0,
+      "last_seen": "2026-11-25T10:08:40.671968+05:30",
+      "checked_until": "2026-11-25T10:07:00+05:30",
       "entry_minute_excluded": true,
       "x": [
         1.0,
@@ -4713,9 +4713,9 @@
         },
         "spot": 25756.3
       },
-      "last": 210.5,
-      "last_seen": "2026-11-25T10:03:32.907999+05:30",
-      "checked_until": "2026-11-25T10:01:00+05:30",
+      "last": 224.6,
+      "last_seen": "2026-11-25T10:08:40.671968+05:30",
+      "checked_until": "2026-11-25T10:07:00+05:30",
       "entry_minute_excluded": true,
       "parent_id": "15c8a6e0e322cc",
       "journal_role": "counter",
