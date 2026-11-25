@@ -4561,7 +4561,7 @@
       "target": 548.72,
       "stop": 429.44,
       "direction": "UP",
-      "status": "OPEN",
+      "status": "TARGET",
       "shadow": false,
       "features_snapshot": {
         "key": "NSE_FO|47804",
@@ -4589,12 +4589,17 @@
         },
         "spot": 25739.15
       },
-      "last": 536.7,
-      "last_seen": "2026-11-25T10:18:57.030698+05:30",
-      "checked_until": "2026-11-25T10:17:00+05:30",
+      "last": 552.4,
+      "last_seen": "2026-11-25T10:20:00+05:30",
+      "checked_until": "2026-11-25T10:19:00+05:30",
       "entry_minute_excluded": true,
       "previous_close": 263.55,
-      "opening": 389.0
+      "opening": 389.0,
+      "closed": "2026-11-25T10:20:00+05:30",
+      "exit_price": 548.72,
+      "evidence": "completed_1m_candle",
+      "gross_pct": 14.999476055747675,
+      "net_estimated_pct": 14.499476055747675
     },
     {
       "id": "15c8a6e0e322cc",
@@ -4637,9 +4642,9 @@
         },
         "spot": 25756.3
       },
-      "last": 263.75,
-      "last_seen": "2026-11-25T10:18:57.030698+05:30",
-      "checked_until": "2026-11-25T10:17:00+05:30",
+      "last": 259.85,
+      "last_seen": "2026-11-25T10:24:06.376360+05:30",
+      "checked_until": "2026-11-25T10:23:00+05:30",
       "entry_minute_excluded": true,
       "x": [
         1.0,
@@ -4685,7 +4690,7 @@
       "target": 240.69,
       "stop": 188.37,
       "direction": "UP",
-      "status": "OPEN",
+      "status": "STOP",
       "shadow": true,
       "features_snapshot": {
         "key": "NSE_FO|47838",
@@ -4713,13 +4718,18 @@
         },
         "spot": 25756.3
       },
-      "last": 197.35,
-      "last_seen": "2026-11-25T10:18:57.030698+05:30",
-      "checked_until": "2026-11-25T10:17:00+05:30",
+      "last": 191.75,
+      "last_seen": "2026-11-25T10:21:00+05:30",
+      "checked_until": "2026-11-25T10:20:00+05:30",
       "entry_minute_excluded": true,
       "parent_id": "15c8a6e0e322cc",
       "journal_role": "counter",
-      "counter_definition": "Buy opposite CE/PE at same strike and time; shadow only"
+      "counter_definition": "Buy opposite CE/PE at same strike and time; shadow only",
+      "closed": "2026-11-25T10:21:00+05:30",
+      "exit_price": 188.37,
+      "evidence": "completed_1m_candle",
+      "gross_pct": -9.999999999999998,
+      "net_estimated_pct": -10.499999999999998
     }
   ],
   "outbox": [
@@ -5461,6 +5471,11 @@
     {
       "id": "entry-15c8a6e0e322cc",
       "text": "S1 PAPER RESEARCH | NIFTY 25750 CE\nExpiry 2026-12-01 | 10:00:58 IST\nLTP/reference \u20b9253.85\nTarget \u20b9291.93 (+15%) | SL \u20b9228.47 (-10%)\nNo trailing SL.\nKronos 15m forecast +0.128% | learned score 0.515 (not calibrated win probability)\nID 15c8a6e0e322cc",
+      "sent": true
+    },
+    {
+      "id": "exit-793cee510a841d",
+      "text": "S2 | NIFTY 25350 CE\nTARGET: \u20b9548.72\nEvidence: completed_1m_candle\nID 793cee510a841d | 10:20 IST",
       "sent": true
     }
   ],
