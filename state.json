@@ -776,6 +776,18 @@
       ],
       "new_training_cases": 1,
       "reported": true
+    },
+    "2026-11-27": {
+      "date": "2026-11-27",
+      "diagnostics": {},
+      "expiry": "2026-12-01",
+      "previous_date": "2026-11-26",
+      "previous_spot": 25884.5,
+      "previous_atm": 25900,
+      "opening_contracts": {
+        "CE": "NSE_FO|47855",
+        "PE": "NSE_FO|47892"
+      }
     }
   },
   "trades": [
@@ -5952,6 +5964,11 @@
     {
       "id": "report-2026-11-26-0",
       "text": "MY DAILY LEARNING REVIEW | 2026-11-26\nRecorded market session: 5\n\nWHAT I DID WELL\n- S1: 25800 CE reached the target.\n\nWHAT WENT WRONG\n- S2: 25800 CE hit its stop. I saved the entry conditions to compare with future results.\n\nWHAT THE RECORD IS TEACHING ME\n- Encouraging: entries before noon: 2 targets and 0 stops across 2 sessions. Average paper result after assumed costs: +14.5% of entry premium. An observation only; not enough comparative evidence for a new rule.\n- I updated my small scoring model from 1 newly resolved alert(s). Kronos was not changed.\n\nWHAT I WILL TRY TOMORROW\n- Keep the entry rules while I collect more evidence. No extra filter is justified yet.\n- I will keep reviewing the opening and value-watch results. Their original rules stay fixed.\n\nMY 15\u201330 SESSION RECORD\n- 0 trial(s) recorded. Every keep/pause decision and daily plan is saved.\n- Next checkpoint: session 15. Calendar days without observed market data do not count.\nThese are observed patterns, not proven reasons. No forced new rule after a single win or loss.\n\nDETAILED RESULTS\nNIFTY PAPER REPORT | 2026-11-26 | 16:15 IST\nValues/returns are research estimates, not executed trades.\n\nS1: 1 alerts\n25800 CE: TARGET; entry 175.10, last 204.70, net estimate +14.50%\n\nS2: 1 alerts\n25800 CE: STOP; entry 236.05, last 213.00, net estimate -10.50%\n\nS3: 0 alerts\n\nSilently followed skipped S1 setups: 0; targets missed 0; stops avoided 0.\n\nKronos underlying forecasts: 5/10 correct direction; MAE 0.095 percentage points.\n\nCounter trades (opposite option, shadow): 1\n25800 PE: STOP\n\nLearning: 3 resolved S1 samples. Warm-up; no learned filtering yet.\nForward Brier score: 0.2382 (lower is better; uncalibrated small sample).\nObserved CE/normal_iv: 2/2 targets. Association, not proven cause.\nObserved CE/high_iv: 1/1 targets. Association, not proven cause.\nS2 rules and S3 model are never rewritten by the learner. Losses can recur.\nKronos: Native pretrained Kronos-mini forecast successful; no base-model fine-tuning.\n",
+      "sent": true
+    },
+    {
+      "id": "online-2026-11-27",
+      "text": "Nifty research bot ONLINE | 2026-11-27\nExpiry 2026-12-01; previous-close ATM 25900.\nS1 Kronos + learning; S2 opening gap; S3 relative fair value.\nPaper alerts only. Daily report around 16:15 IST.",
       "sent": true
     }
   ],
