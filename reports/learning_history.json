@@ -593,6 +593,202 @@
       "active_forward": null,
       "new_training_cases": 1,
       "milestone": false
+    },
+    "2026-11-26": {
+      "date": "2026-11-26",
+      "session_number": 5,
+      "market_session": true,
+      "today_summary": {
+        "S1": {
+          "alerts": 1,
+          "target": 1,
+          "stop": 0,
+          "unresolved": 0
+        },
+        "S2": {
+          "alerts": 1,
+          "target": 0,
+          "stop": 1,
+          "unresolved": 0
+        },
+        "S3": {
+          "alerts": 0,
+          "target": 0,
+          "stop": 0,
+          "unresolved": 0
+        }
+      },
+      "patterns": [
+        {
+          "tag": "side:CE",
+          "label": "buying calls",
+          "stats": {
+            "cases": 3,
+            "days": 3,
+            "wins": 3,
+            "losses": 0,
+            "mean_net_pct": 14.499376440808879
+          },
+          "comparison": {
+            "cases": 0,
+            "days": 0,
+            "wins": 0,
+            "losses": 0,
+            "mean_net_pct": null
+          },
+          "difference_pct": null,
+          "candidate_action": null
+        },
+        {
+          "tag": "iv:normal",
+          "label": "options with IV below 25%",
+          "stats": {
+            "cases": 2,
+            "days": 2,
+            "wins": 2,
+            "losses": 0,
+            "mean_net_pct": 14.499064661213325
+          },
+          "comparison": {
+            "cases": 1,
+            "days": 1,
+            "wins": 1,
+            "losses": 0,
+            "mean_net_pct": 14.499999999999991
+          },
+          "difference_pct": -0.0009353387866664065,
+          "candidate_action": null
+        },
+        {
+          "tag": "iv:high",
+          "label": "options with IV of 25% or more",
+          "stats": {
+            "cases": 1,
+            "days": 1,
+            "wins": 1,
+            "losses": 0,
+            "mean_net_pct": 14.499999999999991
+          },
+          "comparison": {
+            "cases": 2,
+            "days": 2,
+            "wins": 2,
+            "losses": 0,
+            "mean_net_pct": 14.499064661213325
+          },
+          "difference_pct": 0.0009353387866664065,
+          "candidate_action": null
+        },
+        {
+          "tag": "spread:tight",
+          "label": "options with a bid/ask gap of 1.5% or less",
+          "stats": {
+            "cases": 3,
+            "days": 3,
+            "wins": 3,
+            "losses": 0,
+            "mean_net_pct": 14.499376440808879
+          },
+          "comparison": {
+            "cases": 0,
+            "days": 0,
+            "wins": 0,
+            "losses": 0,
+            "mean_net_pct": null
+          },
+          "difference_pct": null,
+          "candidate_action": null
+        },
+        {
+          "tag": "forecast:small",
+          "label": "Kronos moves below 0.20%",
+          "stats": {
+            "cases": 3,
+            "days": 3,
+            "wins": 3,
+            "losses": 0,
+            "mean_net_pct": 14.499376440808879
+          },
+          "comparison": {
+            "cases": 0,
+            "days": 0,
+            "wins": 0,
+            "losses": 0,
+            "mean_net_pct": null
+          },
+          "difference_pct": null,
+          "candidate_action": null
+        },
+        {
+          "tag": "time:morning",
+          "label": "entries before noon",
+          "stats": {
+            "cases": 2,
+            "days": 2,
+            "wins": 2,
+            "losses": 0,
+            "mean_net_pct": 14.500492416781563
+          },
+          "comparison": {
+            "cases": 1,
+            "days": 1,
+            "wins": 1,
+            "losses": 0,
+            "mean_net_pct": 14.497144488863512
+          },
+          "difference_pct": 0.0033479279180514965,
+          "candidate_action": null
+        },
+        {
+          "tag": "time:afternoon",
+          "label": "entries after noon",
+          "stats": {
+            "cases": 1,
+            "days": 1,
+            "wins": 1,
+            "losses": 0,
+            "mean_net_pct": 14.497144488863512
+          },
+          "comparison": {
+            "cases": 2,
+            "days": 2,
+            "wins": 2,
+            "losses": 0,
+            "mean_net_pct": 14.500492416781563
+          },
+          "difference_pct": -0.0033479279180514965,
+          "candidate_action": null
+        },
+        {
+          "tag": "oi:rising",
+          "label": "open interest rising by at least 10%",
+          "stats": {
+            "cases": 3,
+            "days": 3,
+            "wins": 3,
+            "losses": 0,
+            "mean_net_pct": 14.499376440808879
+          },
+          "comparison": {
+            "cases": 0,
+            "days": 0,
+            "wins": 0,
+            "losses": 0,
+            "mean_net_pct": null
+          },
+          "difference_pct": null,
+          "candidate_action": null
+        }
+      ],
+      "actions": [],
+      "tomorrow_policy": null,
+      "evaluated_rule": null,
+      "tomorrow_policies": [],
+      "evaluated_rules": [],
+      "active_rules": [],
+      "active_forward": null,
+      "new_training_cases": 1,
+      "milestone": false
     }
   },
   "rules": {},
