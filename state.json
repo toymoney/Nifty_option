@@ -4875,7 +4875,7 @@
       "target": 271.46,
       "stop": 212.45,
       "direction": "UP",
-      "status": "OPEN",
+      "status": "STOP",
       "shadow": false,
       "features_snapshot": {
         "key": "NSE_FO|47839",
@@ -4903,12 +4903,17 @@
         },
         "spot": 25844.6
       },
-      "last": 228.1,
-      "last_seen": "2026-11-26T09:19:40.756186+05:30",
-      "checked_until": "2026-11-26T09:18:00+05:30",
+      "last": 213.0,
+      "last_seen": "2026-11-26T09:20:00+05:30",
+      "checked_until": "2026-11-26T09:19:00+05:30",
       "entry_minute_excluded": true,
       "previous_close": 237.1,
-      "opening": 239.45
+      "opening": 239.45,
+      "closed": "2026-11-26T09:20:00+05:30",
+      "exit_price": 212.45,
+      "evidence": "completed_1m_candle",
+      "gross_pct": -9.997881804702402,
+      "net_estimated_pct": -10.497881804702402
     }
   ],
   "outbox": [
@@ -5675,6 +5680,11 @@
     {
       "id": "entry-3041c74cc3acfa",
       "text": "S2 PAPER RESEARCH | NIFTY 25800 CE\nExpiry 2026-12-01 | 09:17:07 IST\nLTP/reference \u20b9236.05\nPrevious close \u20b9237.10; open \u20b9239.45\nTarget \u20b9271.46 (+15%) | SL \u20b9212.45 (-10%)\nNo trailing SL.\nID 3041c74cc3acfa",
+      "sent": true
+    },
+    {
+      "id": "exit-3041c74cc3acfa",
+      "text": "S2 | NIFTY 25800 CE\nSTOP: \u20b9212.45\nEvidence: completed_1m_candle\nID 3041c74cc3acfa | 09:20 IST",
       "sent": true
     }
   ],
