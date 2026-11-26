@@ -5013,7 +5013,7 @@
       "target": 201.36,
       "stop": 157.59,
       "direction": "UP",
-      "status": "OPEN",
+      "status": "TARGET",
       "shadow": false,
       "features_snapshot": {
         "key": "NSE_FO|47839",
@@ -5041,9 +5041,9 @@
         },
         "spot": 25782.5
       },
-      "last": 188.0,
-      "last_seen": "2026-11-26T14:08:03.991068+05:30",
-      "checked_until": "2026-11-26T14:07:00+05:30",
+      "last": 204.7,
+      "last_seen": "2026-11-26T14:09:00+05:30",
+      "checked_until": "2026-11-26T14:08:00+05:30",
       "entry_minute_excluded": true,
       "x": [
         1.0,
@@ -5074,7 +5074,12 @@
       "journal_changed": false,
       "journal_reason": "usual setup rules",
       "base_allowed": true,
-      "journal_role": "main"
+      "journal_role": "main",
+      "closed": "2026-11-26T14:09:00+05:30",
+      "exit_price": 201.36,
+      "evidence": "completed_1m_candle",
+      "gross_pct": 14.997144488863512,
+      "net_estimated_pct": 14.497144488863512
     },
     {
       "id": "3d1bec663d6fa6",
@@ -5905,6 +5910,11 @@
     {
       "id": "entry-39baa78a7ce3ae",
       "text": "S1 PAPER RESEARCH | NIFTY 25800 CE\nExpiry 2026-12-01 | 14:00:56 IST\nLTP/reference \u20b9175.10\nTarget \u20b9201.36 (+15%) | SL \u20b9157.59 (-10%)\nNo trailing SL.\nKronos 15m forecast +0.140% | learned score 0.521 (not calibrated win probability)\nID 39baa78a7ce3ae",
+      "sent": true
+    },
+    {
+      "id": "exit-39baa78a7ce3ae",
+      "text": "S1 | NIFTY 25800 CE\nTARGET: \u20b9201.36\nEvidence: completed_1m_candle\nID 39baa78a7ce3ae | 14:09 IST",
       "sent": true
     }
   ],
