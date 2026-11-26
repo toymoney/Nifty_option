@@ -632,7 +632,9 @@
     },
     "2026-11-26": {
       "date": "2026-11-26",
-      "diagnostics": {},
+      "diagnostics": {
+        "Kronos": "Native pretrained Kronos-mini forecast successful; no base-model fine-tuning."
+      },
       "expiry": "2026-12-01",
       "previous_date": "2026-11-25",
       "previous_spot": 25819.25,
@@ -658,7 +660,18 @@
           "key": "NSE_FO|47839"
         }
       },
-      "opening_done": true
+      "opening_done": true,
+      "forecast_slot": "20261126091",
+      "forecasts": [
+        {
+          "at": "2026-11-26T09:35:55.247143+05:30",
+          "return_15m": 0.0004115594898297381,
+          "reference_close": 25803.15,
+          "reference_bar": "2026-11-26T09:30:00+05:30",
+          "target_bar": "2026-11-26T09:45:00+05:30",
+          "predicted_close": 25813.76953125
+        }
+      ]
     }
   },
   "trades": [
