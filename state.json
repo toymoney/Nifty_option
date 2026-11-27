@@ -5646,9 +5646,9 @@
         },
         "spot": 25665.4
       },
-      "last": 152.8,
-      "last_seen": "2026-11-27T14:08:54.596731+05:30",
-      "checked_until": "2026-11-27T14:07:00+05:30",
+      "last": 150.75,
+      "last_seen": "2026-11-27T14:10:27.650885+05:30",
+      "checked_until": "2026-11-27T14:09:00+05:30",
       "entry_minute_excluded": true,
       "x": [
         1.0,
@@ -5722,9 +5722,9 @@
         },
         "spot": 25665.4
       },
-      "last": 150.25,
-      "last_seen": "2026-11-27T14:08:54.596731+05:30",
-      "checked_until": "2026-11-27T14:07:00+05:30",
+      "last": 151.4,
+      "last_seen": "2026-11-27T14:10:27.650885+05:30",
+      "checked_until": "2026-11-27T14:09:00+05:30",
       "entry_minute_excluded": true,
       "parent_id": "46bb9a4731a531",
       "journal_role": "counter",
