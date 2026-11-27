@@ -5332,7 +5332,7 @@
       "target": 161.63,
       "stop": 126.5,
       "direction": "UP",
-      "status": "OPEN",
+      "status": "STOP",
       "shadow": false,
       "features_snapshot": {
         "key": "NSE_FO|47835",
@@ -5360,9 +5360,9 @@
         },
         "spot": 25684.2
       },
-      "last": 131.65,
-      "last_seen": "2026-11-27T13:12:52.762361+05:30",
-      "checked_until": "2026-11-27T13:11:00+05:30",
+      "last": 132.4,
+      "last_seen": "2026-11-27T13:16:00+05:30",
+      "checked_until": "2026-11-27T13:15:00+05:30",
       "entry_minute_excluded": true,
       "x": [
         1.0,
@@ -5393,7 +5393,12 @@
       "journal_changed": false,
       "journal_reason": "usual setup rules",
       "base_allowed": true,
-      "journal_role": "main"
+      "journal_role": "main",
+      "closed": "2026-11-27T13:16:00+05:30",
+      "exit_price": 126.5,
+      "evidence": "completed_1m_candle",
+      "gross_pct": -9.996442547136253,
+      "net_estimated_pct": -10.496442547136253
     },
     {
       "id": "115f7b250c1933",
@@ -5436,9 +5441,9 @@
         },
         "spot": 25684.2
       },
-      "last": 183.0,
-      "last_seen": "2026-11-27T13:12:52.762361+05:30",
-      "checked_until": "2026-11-27T13:11:00+05:30",
+      "last": 179.3,
+      "last_seen": "2026-11-27T13:17:59.124785+05:30",
+      "checked_until": "2026-11-27T13:16:00+05:30",
       "entry_minute_excluded": true,
       "parent_id": "32fef99dacc3dc",
       "journal_role": "counter",
@@ -6249,6 +6254,11 @@
     {
       "id": "entry-32fef99dacc3dc",
       "text": "S1 PAPER RESEARCH | NIFTY 25700 CE\nExpiry 2026-12-01 | 13:00:37 IST\nLTP/reference \u20b9140.55\nTarget \u20b9161.63 (+15%) | SL \u20b9126.50 (-10%)\nNo trailing SL.\nKronos 15m forecast +0.109% | learned score 0.539 (not calibrated win probability)\nID 32fef99dacc3dc",
+      "sent": true
+    },
+    {
+      "id": "exit-32fef99dacc3dc",
+      "text": "S1 | NIFTY 25700 CE\nSTOP: \u20b9126.50\nEvidence: completed_1m_candle\nID 32fef99dacc3dc | 13:16 IST",
       "sent": true
     }
   ],
