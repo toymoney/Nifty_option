@@ -1,0 +1,23 @@
+MY DAILY LEARNING REVIEW | 2026-11-27
+Recorded market session: 6
+
+WHAT I DID WELL
+- S1: 25650 CE reached the target.
+- S1: 25650 CE reached the target.
+
+WHAT WENT WRONG
+- S2: 25900 PE hit its stop. I saved the entry conditions to compare with future results.
+- S1: 25700 CE hit its stop. I saved the entry conditions to compare with future results.
+
+WHAT THE RECORD IS TEACHING ME
+- Encouraging: entries before noon: 2 targets and 0 stops across 2 sessions. Average paper result after assumed costs: +14.5% of entry premium. An observation only; not enough comparative evidence for a new rule.
+- I updated my small scoring model from 3 newly resolved alert(s). Kronos was not changed.
+
+WHAT I WILL TRY TOMORROW
+- Keep the entry rules while I collect more evidence. No extra filter is justified yet.
+- I will keep reviewing the opening and value-watch results. Their original rules stay fixed.
+
+MY 15–30 SESSION RECORD
+- 0 trial(s) recorded. Every keep/pause decision and daily plan is saved.
+- Next checkpoint: session 15. Calendar days without observed market data do not count.
+These are observed patterns, not proven reasons. No forced new rule after a single win or loss.

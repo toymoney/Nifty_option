@@ -1,0 +1,33 @@
+NIFTY PAPER REPORT | 2026-11-27 | 16:15 IST
+Values/returns are research estimates, not executed trades.
+
+S1: 3 alerts
+25700 CE: STOP; entry 140.55, last 132.40, net estimate -10.50%
+25650 CE: TARGET; entry 144.15, last 165.40, net estimate +14.50%
+25650 CE: TARGET; entry 152.40, last 169.20, net estimate +14.50%
+
+S2: 1 alerts
+25900 PE: STOP; entry 201.35, last 182.65, net estimate -13.02%
+
+S3: 0 alerts
+
+Silently followed skipped S1 setups: 0; targets missed 0; stops avoided 0.
+
+Kronos underlying forecasts: 6/10 correct direction; MAE 0.071 percentage points.
+
+Counter trades (opposite option, shadow): 3
+25700 PE: STOP
+25650 PE: STOP
+25650 PE: STOP
+
+Learning: 6 resolved S1 samples. Warm-up; no learned filtering yet.
+Forward Brier score: 0.2381 (lower is better; uncalibrated small sample).
+Observed CE/normal_iv: 4/5 targets. Association, not proven cause.
+Observed CE/high_iv: 1/1 targets. Association, not proven cause.
+forecast magnitude: winners mean 0.133, losses mean 0.109.
+IV/50: winners mean 0.390, losses mean 0.262.
+absolute Delta: winners mean 0.515, losses mean 0.499.
+OI change: winners mean 0.831, losses mean 1.000.
+spread x10: winners mean 0.020, losses mean 0.014.
+S2 rules and S3 model are never rewritten by the learner. Losses can recur.
+Kronos: Native pretrained Kronos-mini forecast successful; no base-model fine-tuning.
