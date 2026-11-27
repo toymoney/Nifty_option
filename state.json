@@ -5449,9 +5449,9 @@
         },
         "spot": 25684.2
       },
-      "last": 184.9,
-      "last_seen": "2026-11-27T13:33:17.413670+05:30",
-      "checked_until": "2026-11-27T13:31:00+05:30",
+      "last": 178.65,
+      "last_seen": "2026-11-27T13:38:23.920598+05:30",
+      "checked_until": "2026-11-27T13:37:00+05:30",
       "entry_minute_excluded": true,
       "parent_id": "32fef99dacc3dc",
       "journal_role": "counter",
@@ -5498,9 +5498,9 @@
         },
         "spot": 25646.25
       },
-      "last": 152.0,
-      "last_seen": "2026-11-27T13:33:17.413670+05:30",
-      "checked_until": "2026-11-27T13:32:00+05:30",
+      "last": 156.9,
+      "last_seen": "2026-11-27T13:38:23.920598+05:30",
+      "checked_until": "2026-11-27T13:37:00+05:30",
       "entry_minute_excluded": true,
       "x": [
         1.0,
@@ -5546,7 +5546,7 @@
       "target": 190.44,
       "stop": 149.04,
       "direction": "UP",
-      "status": "OPEN",
+      "status": "STOP",
       "shadow": true,
       "features_snapshot": {
         "key": "NSE_FO|47834",
@@ -5574,13 +5574,18 @@
         },
         "spot": 25646.25
       },
-      "last": 157.6,
-      "last_seen": "2026-11-27T13:33:17.413670+05:30",
-      "checked_until": "2026-11-27T13:32:00+05:30",
+      "last": 146.45,
+      "last_seen": "2026-11-27T13:36:00+05:30",
+      "checked_until": "2026-11-27T13:35:00+05:30",
       "entry_minute_excluded": true,
       "parent_id": "18eb0b9eff7e8b",
       "journal_role": "counter",
-      "counter_definition": "Buy opposite CE/PE at same strike and time; shadow only"
+      "counter_definition": "Buy opposite CE/PE at same strike and time; shadow only",
+      "closed": "2026-11-27T13:36:00+05:30",
+      "exit_price": 149.04,
+      "evidence": "completed_1m_candle",
+      "gross_pct": -9.999999999999998,
+      "net_estimated_pct": -10.499999999999998
     }
   ],
   "outbox": [
