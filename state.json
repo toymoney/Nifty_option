@@ -805,7 +805,8 @@
           "key": "NSE_FO|47892"
         }
       },
-      "opening_done": true
+      "opening_done": true,
+      "forecast_slot": "20261127091"
     }
   },
   "trades": [
