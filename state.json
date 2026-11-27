@@ -5441,9 +5441,9 @@
         },
         "spot": 25684.2
       },
-      "last": 179.3,
-      "last_seen": "2026-11-27T13:17:59.124785+05:30",
-      "checked_until": "2026-11-27T13:16:00+05:30",
+      "last": 184.85,
+      "last_seen": "2026-11-27T13:23:04.523075+05:30",
+      "checked_until": "2026-11-27T13:21:00+05:30",
       "entry_minute_excluded": true,
       "parent_id": "32fef99dacc3dc",
       "journal_role": "counter",
