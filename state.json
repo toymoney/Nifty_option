@@ -808,7 +808,7 @@
         }
       },
       "opening_done": true,
-      "forecast_slot": "20261127130",
+      "forecast_slot": "20261127131",
       "forecasts": [
         {
           "at": "2026-11-27T09:35:40.647548+05:30",
@@ -873,6 +873,14 @@
           "reference_bar": "2026-11-27T12:55:00+05:30",
           "target_bar": "2026-11-27T13:10:00+05:30",
           "predicted_close": 25714.798828125
+        },
+        {
+          "at": "2026-11-27T13:30:44.130558+05:30",
+          "return_15m": 0.0014754443223821134,
+          "reference_close": 25647.2,
+          "reference_bar": "2026-11-27T13:25:00+05:30",
+          "target_bar": "2026-11-27T13:40:00+05:30",
+          "predicted_close": 25685.041015625
         }
       ]
     }
@@ -5441,11 +5449,136 @@
         },
         "spot": 25684.2
       },
-      "last": 194.15,
-      "last_seen": "2026-11-27T13:28:09.496671+05:30",
-      "checked_until": "2026-11-27T13:26:00+05:30",
+      "last": 184.9,
+      "last_seen": "2026-11-27T13:33:17.413670+05:30",
+      "checked_until": "2026-11-27T13:31:00+05:30",
       "entry_minute_excluded": true,
       "parent_id": "32fef99dacc3dc",
+      "journal_role": "counter",
+      "counter_definition": "Buy opposite CE/PE at same strike and time; shadow only"
+    },
+    {
+      "id": "18eb0b9eff7e8b",
+      "day": "2026-11-27",
+      "strategy": "S1",
+      "key": "NSE_FO|47821",
+      "strike": 25650.0,
+      "side": "CE",
+      "expiry": "2026-12-01",
+      "entry": 144.15,
+      "entered": "2026-11-27T13:30:44.130558+05:30",
+      "target": 165.77,
+      "stop": 129.74,
+      "direction": "UP",
+      "status": "OPEN",
+      "shadow": false,
+      "features_snapshot": {
+        "key": "NSE_FO|47821",
+        "strike": 25650.0,
+        "side": "CE",
+        "expiry": "2026-12-01",
+        "market": {
+          "ltp": 144.15,
+          "volume": 45469645,
+          "oi": 3651050.0,
+          "close_price": 351.05,
+          "bid_price": 143.45,
+          "bid_qty": 195,
+          "ask_price": 143.7,
+          "ask_qty": 130,
+          "prev_oi": 390065.0
+        },
+        "greeks": {
+          "vega": 10.8215,
+          "theta": -17.0053,
+          "gamma": 0.0011,
+          "delta": 0.5119,
+          "iv": 12.83,
+          "pop": 34.71
+        },
+        "spot": 25646.25
+      },
+      "last": 152.0,
+      "last_seen": "2026-11-27T13:33:17.413670+05:30",
+      "checked_until": "2026-11-27T13:32:00+05:30",
+      "entry_minute_excluded": true,
+      "x": [
+        1.0,
+        0.14754443223821134,
+        0.2566,
+        0.5119,
+        1.1,
+        0.17005299999999998,
+        0.108215,
+        1,
+        0.01734304543877905,
+        0.68
+      ],
+      "score_at_entry": 0.5397299051370444,
+      "trained_at_entry": 3,
+      "forecast_return": 0.0014754443223821134,
+      "bucket": "CE:normal_iv",
+      "model": "Kronos-mini pretrained + online logistic ranker",
+      "journal_tags": [
+        "side:CE",
+        "time:afternoon",
+        "iv:normal",
+        "spread:tight",
+        "forecast:small",
+        "oi:rising"
+      ],
+      "journal_rule_id": null,
+      "journal_changed": false,
+      "journal_reason": "usual setup rules",
+      "base_allowed": true,
+      "journal_role": "main"
+    },
+    {
+      "id": "400d2991d056f8",
+      "day": "2026-11-27",
+      "strategy": "S1",
+      "key": "NSE_FO|47834",
+      "strike": 25650.0,
+      "side": "PE",
+      "expiry": "2026-12-01",
+      "entry": 165.6,
+      "entered": "2026-11-27T13:30:44.130558+05:30",
+      "target": 190.44,
+      "stop": 149.04,
+      "direction": "UP",
+      "status": "OPEN",
+      "shadow": true,
+      "features_snapshot": {
+        "key": "NSE_FO|47834",
+        "strike": 25650.0,
+        "side": "PE",
+        "expiry": "2026-12-01",
+        "market": {
+          "ltp": 165.6,
+          "volume": 160496505,
+          "oi": 5898100.0,
+          "close_price": 71.6,
+          "bid_price": 167.25,
+          "bid_qty": 520,
+          "ask_price": 167.35,
+          "ask_qty": 195,
+          "prev_oi": 2037750.0
+        },
+        "greeks": {
+          "vega": 10.8224,
+          "theta": -20.9398,
+          "gamma": 0.0009,
+          "delta": -0.4892,
+          "iv": 15.8,
+          "pop": 34.41
+        },
+        "spot": 25646.25
+      },
+      "last": 157.6,
+      "last_seen": "2026-11-27T13:33:17.413670+05:30",
+      "checked_until": "2026-11-27T13:32:00+05:30",
+      "entry_minute_excluded": true,
+      "parent_id": "18eb0b9eff7e8b",
       "journal_role": "counter",
       "counter_definition": "Buy opposite CE/PE at same strike and time; shadow only"
     }
@@ -6259,6 +6392,11 @@
     {
       "id": "exit-32fef99dacc3dc",
       "text": "S1 | NIFTY 25700 CE\nSTOP: \u20b9126.50\nEvidence: completed_1m_candle\nID 32fef99dacc3dc | 13:16 IST",
+      "sent": true
+    },
+    {
+      "id": "entry-18eb0b9eff7e8b",
+      "text": "S1 PAPER RESEARCH | NIFTY 25650 CE\nExpiry 2026-12-01 | 13:30:44 IST\nLTP/reference \u20b9144.15\nTarget \u20b9165.77 (+15%) | SL \u20b9129.74 (-10%)\nNo trailing SL.\nKronos 15m forecast +0.148% | learned score 0.540 (not calibrated win probability)\nID 18eb0b9eff7e8b",
       "sent": true
     }
   ],
