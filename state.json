@@ -5421,7 +5421,7 @@
       "target": 200.67,
       "stop": 157.05,
       "direction": "UP",
-      "status": "OPEN",
+      "status": "STOP",
       "shadow": true,
       "features_snapshot": {
         "key": "NSE_FO|47836",
@@ -5449,13 +5449,18 @@
         },
         "spot": 25684.2
       },
-      "last": 176.3,
-      "last_seen": "2026-11-27T13:43:30.005939+05:30",
-      "checked_until": "2026-11-27T13:42:00+05:30",
+      "last": 159.2,
+      "last_seen": "2026-11-27T13:46:00+05:30",
+      "checked_until": "2026-11-27T13:45:00+05:30",
       "entry_minute_excluded": true,
       "parent_id": "32fef99dacc3dc",
       "journal_role": "counter",
-      "counter_definition": "Buy opposite CE/PE at same strike and time; shadow only"
+      "counter_definition": "Buy opposite CE/PE at same strike and time; shadow only",
+      "closed": "2026-11-27T13:46:00+05:30",
+      "exit_price": 157.05,
+      "evidence": "completed_1m_candle",
+      "gross_pct": -9.999999999999998,
+      "net_estimated_pct": -10.499999999999998
     },
     {
       "id": "18eb0b9eff7e8b",
