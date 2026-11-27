@@ -5449,9 +5449,9 @@
         },
         "spot": 25684.2
       },
-      "last": 178.65,
-      "last_seen": "2026-11-27T13:38:23.920598+05:30",
-      "checked_until": "2026-11-27T13:37:00+05:30",
+      "last": 176.3,
+      "last_seen": "2026-11-27T13:43:30.005939+05:30",
+      "checked_until": "2026-11-27T13:42:00+05:30",
       "entry_minute_excluded": true,
       "parent_id": "32fef99dacc3dc",
       "journal_role": "counter",
@@ -5470,7 +5470,7 @@
       "target": 165.77,
       "stop": 129.74,
       "direction": "UP",
-      "status": "OPEN",
+      "status": "TARGET",
       "shadow": false,
       "features_snapshot": {
         "key": "NSE_FO|47821",
@@ -5498,9 +5498,9 @@
         },
         "spot": 25646.25
       },
-      "last": 156.9,
-      "last_seen": "2026-11-27T13:38:23.920598+05:30",
-      "checked_until": "2026-11-27T13:37:00+05:30",
+      "last": 165.4,
+      "last_seen": "2026-11-27T13:40:00+05:30",
+      "checked_until": "2026-11-27T13:39:00+05:30",
       "entry_minute_excluded": true,
       "x": [
         1.0,
@@ -5531,7 +5531,12 @@
       "journal_changed": false,
       "journal_reason": "usual setup rules",
       "base_allowed": true,
-      "journal_role": "main"
+      "journal_role": "main",
+      "closed": "2026-11-27T13:40:00+05:30",
+      "exit_price": 165.77,
+      "evidence": "completed_1m_candle",
+      "gross_pct": 14.998265695456126,
+      "net_estimated_pct": 14.498265695456126
     },
     {
       "id": "400d2991d056f8",
@@ -6402,6 +6407,11 @@
     {
       "id": "entry-18eb0b9eff7e8b",
       "text": "S1 PAPER RESEARCH | NIFTY 25650 CE\nExpiry 2026-12-01 | 13:30:44 IST\nLTP/reference \u20b9144.15\nTarget \u20b9165.77 (+15%) | SL \u20b9129.74 (-10%)\nNo trailing SL.\nKronos 15m forecast +0.148% | learned score 0.540 (not calibrated win probability)\nID 18eb0b9eff7e8b",
+      "sent": true
+    },
+    {
+      "id": "exit-18eb0b9eff7e8b",
+      "text": "S1 | NIFTY 25650 CE\nTARGET: \u20b9165.77\nEvidence: completed_1m_candle\nID 18eb0b9eff7e8b | 13:40 IST",
       "sent": true
     }
   ],
