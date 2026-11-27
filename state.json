@@ -779,7 +779,9 @@
     },
     "2026-11-27": {
       "date": "2026-11-27",
-      "diagnostics": {},
+      "diagnostics": {
+        "Kronos": "Native pretrained Kronos-mini forecast successful; no base-model fine-tuning."
+      },
       "expiry": "2026-12-01",
       "previous_date": "2026-11-26",
       "previous_spot": 25884.5,
@@ -806,7 +808,17 @@
         }
       },
       "opening_done": true,
-      "forecast_slot": "20261127091"
+      "forecast_slot": "20261127091",
+      "forecasts": [
+        {
+          "at": "2026-11-27T09:35:40.647548+05:30",
+          "return_15m": 0.0007610462744171986,
+          "reference_close": 25857.7,
+          "reference_bar": "2026-11-27T09:30:00+05:30",
+          "target_bar": "2026-11-27T09:45:00+05:30",
+          "predicted_close": 25877.37890625
+        }
+      ]
     }
   },
   "trades": [
